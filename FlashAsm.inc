@@ -1,0 +1,3 @@
+
+#define FLASH_START_ADDRESS			0x02000 
+#define DATA_FLASH_SIZE				1024

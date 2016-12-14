@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="style.css"></link>
+        <script type="text/javascript" src="/jquery.js"></script>
+        <script type="text/javascript" src="/main.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+            <h1>ETH Relay board</h1>
+
+            <p>The ETH Relay board is a easy solution to control remotely your lamps, doors, vents, etc.</p>
+            <p>The system is composed of 8 configurable IOs, 4 SPDT Relays and 4 Analog inputs.<br>
+                The IOs are dynamically configurable such as input (to receive a digital event) or such as output (to produce digital signal).<br>
+                The Relays can be directly commanded using the web page, activated remotely from other boards or controlled by turn-on and turn-off automatic timer.<br>
+                The Analog inputs recognize 1024 values from 0V to 5V. Them can be used to control the IO or Relay through user definable thresholds.
+            </p>
+            <table class="center">
+                <tr><td><b>Username:</b></td><td>&nbsp;</td><td><i>admin</i></td></tr>
+                <tr><td><b>Password:</b></td><td>&nbsp;</td><td><i>password</i></td></tr>
+            </table>
+            <p>To prevent unauthorized access the default value must be changed since the first access.</p>
+            </div>
+            ~inc:footer.inc~
+    <script type="text/javascript">
+        window.onload = function () {
+            selectMenu(1);
+            updateStatus();
+        };
+    </script>
+    </body>
+</html>

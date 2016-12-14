@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="/style.css"></link>
+        <script type="text/javascript" src="/jquery.js"></script>
+        <script type="text/javascript" src="/main.js"></script>
+        <script type="text/javascript" src="relay.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+            <h1>Relay Management</h1>
+
+            <div class="result hidden" id="msg"></div>
+
+            <p>The Relays are SPDT and can control a load of 5A @ 220V</p>
+
+            <table class="tb tb3r">
+                <thead>
+                    <tr>
+                        <th colspan="3">Manual functions</th>
+                    </tr>
+                    <tr>
+                        <th>Relay number</th>
+                        <th>Current status</th>
+                        <th>Startup status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Relay 1:</td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="rb1" onclick="relay(this);"/>
+                                <label class="onoff-label" for="rb1" title="Change the current status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="st1" onclick="startup(this);"/>
+                                <label class="onoff-label" for="st1" title="Define the default startup status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relay 2:</td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="rb2" onclick="relay(this);"/>
+                                <label class="onoff-label" for="rb2" title="Change the current status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="st2" onclick="startup(this);"/>
+                                <label class="onoff-label" for="st2" title="Define the default startup status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relay 3:</td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="rb3" onclick="relay(this);"/>
+                                <label class="onoff-label" for="rb3" title="Change the current status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>                            
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="st3" onclick="startup(this);"/>
+                                <label class="onoff-label" for="st3" title="Define the default startup status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Relay 4:</td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="rb4" onclick="relay(this);"/>
+                                <label class="onoff-label" for="rb4" title="Change the current status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="st4" onclick="startup(this);"/>
+                                <label class="onoff-label" for="st4" title="Define the default startup status">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="tb tb4t">
+                <thead>
+                    <tr>
+                        <th colspan="4">Timer functions</th>
+                    </tr>
+                    <tr>
+                        <th>Relay number</th>
+                        <th>Turn on time</th>
+                        <th>Turn off time</th>
+                        <th>Save</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="r1">
+                        <td>Relay 1:</td>
+                        <td>
+                            <select id="onh1"></select>
+                            <select id="onm1"></select>
+                        </td>
+                        <td>
+                            <select id="offh1"></select>
+                            <select id="offm1"></select>
+                        </td>
+                        <td><input type="button" value="Save" id="rs1" onclick="save(this);" title=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Relay 2:</td>
+                        <td>
+                            <select id="onh2"></select>
+                            <select id="onm2"></select>
+                        </td>
+                        <td>
+                            <select id="offh2"></select>
+                            <select id="offm2"></select>
+                        </td>
+                        <td><input type="button" value="Save" id="rs2" onclick="save(this);" title=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Relay 3:</td>
+                        <td>
+                            <select id="onh3"></select>
+                            <select id="onm3"></select>
+                        </td>
+                        <td>
+                            <select id="offh3"></select>
+                            <select id="offm3"></select>
+                        </td>
+                        <td><input type="button" value="Save" id="rs3" onclick="save(this);" title=""/></td>
+                    </tr>
+                    <tr>
+                        <td>Relay 4:</td>
+                        <td>
+                            <select id="onh4"></select>
+                            <select id="onm4"></select>
+                        </td>
+                        <td>
+                            <select id="offh4"></select>
+                            <select id="offm4"></select>
+                        </td>
+                        <td><input type="button" value="Save" id="rs4" onclick="save(this);" title=""/></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        ~inc:footer.inc~
+        <script type="text/javascript">
+            window.onload = function () {
+                selectMenu(5);
+                updateStatus();
+                updateSelectWithOptions();
+                //$("#rb1, #rb2, #rb3, #rb4").prop("disabled", true);
+                updateRelay(true, true);
+            };
+        </script>
+    </body>
+</html>

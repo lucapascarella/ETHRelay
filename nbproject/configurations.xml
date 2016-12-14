@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="f2" displayName="Git" projectFiles="true">
+      <itemPath>.gitignore</itemPath>
+    </logicalFolder>
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="Common" projectFiles="true">
+        <itemPath>Compiler.h</itemPath>
+        <itemPath>GenericTypeDefs.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="HTTPApp" projectFiles="true">
+        <itemPath>HTTPApp/HTTPApp.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="TCPIPStack" projectFiles="true">
+        <itemPath>TCPIP Stack/AES.h</itemPath>
+        <itemPath>TCPIP Stack/AES_CBC.h</itemPath>
+        <itemPath>TCPIP Stack/AES_CFB.h</itemPath>
+        <itemPath>TCPIP Stack/AES_CTR.h</itemPath>
+        <itemPath>TCPIP Stack/AES_ECB.h</itemPath>
+        <itemPath>TCPIP Stack/AES_ECB_PIC32.h</itemPath>
+        <itemPath>TCPIP Stack/AES_OFB.h</itemPath>
+        <itemPath>TCPIP Stack/ARCFOUR.h</itemPath>
+        <itemPath>TCPIP Stack/ARP.h</itemPath>
+        <itemPath>TCPIP Stack/Announce.h</itemPath>
+        <itemPath>TCPIP Stack/AutoIP.h</itemPath>
+        <itemPath>TCPIP Stack/BerkeleyAPI.h</itemPath>
+        <itemPath>TCPIP Stack/BigInt.h</itemPath>
+        <itemPath>TCPIP Stack/DHCP.h</itemPath>
+        <itemPath>TCPIP Stack/DNS.h</itemPath>
+        <itemPath>TCPIP Stack/Delay.h</itemPath>
+        <itemPath>TCPIP Stack/DynDNS.h</itemPath>
+        <itemPath>TCPIP Stack/ETH97J60.h</itemPath>
+        <itemPath>TCPIP Stack/FTP.h</itemPath>
+        <itemPath>TCPIP Stack/FileSystem.h</itemPath>
+        <itemPath>TCPIP Stack/HTTP2.h</itemPath>
+        <itemPath>TCPIP Stack/Hashes.h</itemPath>
+        <itemPath>TCPIP Stack/Helpers.h</itemPath>
+        <itemPath>TCPIP Stack/ICMP.h</itemPath>
+        <itemPath>TCPIP Stack/IP.h</itemPath>
+        <itemPath>TCPIP Stack/LCDBlocking.h</itemPath>
+        <itemPath>TCPIP Stack/MAC.h</itemPath>
+        <itemPath>TCPIP Stack/MPFS2.h</itemPath>
+        <itemPath>TCPIP Stack/NBNS.h</itemPath>
+        <itemPath>TCPIP Stack/RSA.h</itemPath>
+        <itemPath>TCPIP Stack/Random.h</itemPath>
+        <itemPath>TCPIP Stack/Reboot.h</itemPath>
+        <itemPath>TCPIP Stack/SMTP.h</itemPath>
+        <itemPath>TCPIP Stack/SNMP.h</itemPath>
+        <itemPath>TCPIP Stack/SNMPv3.h</itemPath>
+        <itemPath>TCPIP Stack/SNTP.h</itemPath>
+        <itemPath>TCPIP Stack/SPIFlash.h</itemPath>
+        <itemPath>TCPIP Stack/SPIRAM.h</itemPath>
+        <itemPath>TCPIP Stack/SSL.h</itemPath>
+        <itemPath>TCPIP Stack/SSLClientSize.h</itemPath>
+        <itemPath>TCPIP Stack/StackTsk.h</itemPath>
+        <itemPath>TCPIP Stack/TCP.h</itemPath>
+        <itemPath>TCPIP Stack/TCPIP.h</itemPath>
+        <itemPath>TCPIP Stack/Tick.h</itemPath>
+        <itemPath>TCPIP Stack/UDP.h</itemPath>
+        <itemPath>TCPIP Stack/XEEPROM.h</itemPath>
+        <itemPath>TCPIP Stack/_HTTP2.h</itemPath>
+        <itemPath>TCPIP Stack/regdef.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Utilities" projectFiles="true">
+        <itemPath>AppConfig.h</itemPath>
+        <itemPath>Board.h</itemPath>
+        <itemPath>Relay.h</itemPath>
+        <itemPath>I2CMaster.h</itemPath>
+        <itemPath>MCP79402.h</itemPath>
+        <itemPath>IO.h</itemPath>
+        <itemPath>ADC.h</itemPath>
+        <itemPath>Input.h</itemPath>
+        <itemPath>NTP.h</itemPath>
+        <itemPath>ddns.h</itemPath>
+        <itemPath>Ping.h</itemPath>
+        <itemPath>HTTPClient.h</itemPath>
+        <itemPath>EMAIL.h</itemPath>
+      </logicalFolder>
+      <itemPath>TCPIPConfig.h</itemPath>
+      <itemPath>Main.h</itemPath>
+      <itemPath>HardwareProfile.h</itemPath>
+      <itemPath>HTTPPrint.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LinkerScript"
+                   displayName="Linker Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="f3" displayName="HTTPApp" projectFiles="true">
+        <itemPath>HTTPApp/HTTPAppCommands.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppLocalNetwork.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppAuth.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppDate.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppDDNS.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppAnalog.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppRelay.c</itemPath>
+        <itemPath>HTTPApp/HTTPAppIO.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="TCPIPStack" projectFiles="true">
+        <itemPath>TCPIP Stack/ARCFOUR.c</itemPath>
+        <itemPath>TCPIP Stack/ARP.c</itemPath>
+        <itemPath>TCPIP Stack/Announce.c</itemPath>
+        <itemPath>TCPIP Stack/AutoIP.c</itemPath>
+        <itemPath>TCPIP Stack/BigInt.c</itemPath>
+        <itemPath>TCPIP Stack/DHCP.c</itemPath>
+        <itemPath>TCPIP Stack/DHCPs.c</itemPath>
+        <itemPath>TCPIP Stack/DNS.c</itemPath>
+        <itemPath>TCPIP Stack/Delay.c</itemPath>
+        <itemPath>TCPIP Stack/DynDNS.c</itemPath>
+        <itemPath>TCPIP Stack/ETH97J60.c</itemPath>
+        <itemPath>TCPIP Stack/FileSystem.c</itemPath>
+        <itemPath>TCPIP Stack/HTTP2.c</itemPath>
+        <itemPath>TCPIP Stack/Hashes.c</itemPath>
+        <itemPath>TCPIP Stack/Helpers.c</itemPath>
+        <itemPath>TCPIP Stack/ICMP.c</itemPath>
+        <itemPath>TCPIP Stack/IP.c</itemPath>
+        <itemPath>TCPIP Stack/LCDBlocking.c</itemPath>
+        <itemPath>TCPIP Stack/MPFS2.c</itemPath>
+        <itemPath>TCPIP Stack/NBNS.c</itemPath>
+        <itemPath>TCPIP Stack/RSA.c</itemPath>
+        <itemPath>TCPIP Stack/Random.c</itemPath>
+        <itemPath>TCPIP Stack/Reboot.c</itemPath>
+        <itemPath>TCPIP Stack/SSL.c</itemPath>
+        <itemPath>TCPIP Stack/StackTsk.c</itemPath>
+        <itemPath>TCPIP Stack/TCP.c</itemPath>
+        <itemPath>TCPIP Stack/TFTPc.c</itemPath>
+        <itemPath>TCPIP Stack/Telnet.c</itemPath>
+        <itemPath>TCPIP Stack/Tick.c</itemPath>
+        <itemPath>TCPIP Stack/UDP.c</itemPath>
+        <itemPath>TCPIP Stack/XEEPROM.c</itemPath>
+        <itemPath>TCPIP Stack/SMTP.c</itemPath>
+        <itemPath>TCPIP Stack/BigInt_helper.asm</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Utilities" projectFiles="true">
+        <itemPath>AppConfig.c</itemPath>
+        <itemPath>Board.c</itemPath>
+        <itemPath>Relay.c</itemPath>
+        <itemPath>I2CMaster.c</itemPath>
+        <itemPath>MCP79402.c</itemPath>
+        <itemPath>IO.c</itemPath>
+        <itemPath>ADC.c</itemPath>
+        <itemPath>Input.c</itemPath>
+        <itemPath>NTP.c</itemPath>
+        <itemPath>ddns.c</itemPath>
+        <itemPath>Ping.c</itemPath>
+        <itemPath>HTTPClient.c</itemPath>
+        <itemPath>EMAIL.c</itemPath>
+      </logicalFolder>
+      <itemPath>Main.c</itemPath>
+      <itemPath>CustomHTTPApp.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="f1" displayName="WebPages" projectFiles="true">
+      <logicalFolder name="f1" displayName="prt" projectFiles="true">
+        <itemPath>WebPages/prt/index.htm</itemPath>
+        <itemPath>WebPages/prt/index.js</itemPath>
+        <itemPath>WebPages/prt/local.cgi</itemPath>
+        <itemPath>WebPages/prt/local.htm</itemPath>
+        <itemPath>WebPages/prt/local.js</itemPath>
+        <itemPath>WebPages/prt/local.xml</itemPath>
+        <itemPath>WebPages/prt/date.cgi</itemPath>
+        <itemPath>WebPages/prt/date.htm</itemPath>
+        <itemPath>WebPages/prt/date.js</itemPath>
+        <itemPath>WebPages/prt/date.xml</itemPath>
+        <itemPath>WebPages/prt/ddns.xml</itemPath>
+        <itemPath>WebPages/prt/localreboot.htm</itemPath>
+        <itemPath>WebPages/prt/analog.htm</itemPath>
+        <itemPath>WebPages/prt/analog.js</itemPath>
+        <itemPath>WebPages/prt/analog.xml</itemPath>
+        <itemPath>WebPages/prt/relay.htm</itemPath>
+        <itemPath>WebPages/prt/relay.js</itemPath>
+        <itemPath>WebPages/prt/relay.xml</itemPath>
+        <itemPath>WebPages/prt/io.htm</itemPath>
+        <itemPath>WebPages/prt/io.js</itemPath>
+        <itemPath>WebPages/prt/io.xml</itemPath>
+        <itemPath>WebPages/prt/io.cgi</itemPath>
+        <itemPath>WebPages/prt/relay.cgi</itemPath>
+        <itemPath>WebPages/prt/analog.cgi</itemPath>
+        <itemPath>WebPages/prt/io2.xml</itemPath>
+      </logicalFolder>
+      <itemPath>WebPages/about.htm</itemPath>
+      <itemPath>WebPages/footer.inc</itemPath>
+      <itemPath>WebPages/index.htm</itemPath>
+      <itemPath>WebPages/jquery.js</itemPath>
+      <itemPath>WebPages/logo.png</itemPath>
+      <itemPath>WebPages/main.js</itemPath>
+      <itemPath>WebPages/menu.inc</itemPath>
+      <itemPath>WebPages/noauth.htm</itemPath>
+      <itemPath>WebPages/style.css</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="default" type="2">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <targetDevice>PIC18F67J60</targetDevice>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
+        <platformTool>RealICEPlatformTool</platformTool>
+        <languageToolchain>C18</languageToolchain>
+        <languageToolchainVersion>3.47</languageToolchainVersion>
+        <platform>3</platform>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+          </linkerLibItems>
+        </linkerTool>
+        <archiverTool>
+        </archiverTool>
+        <loading>
+          <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>true</parseOnProdLoad>
+          <alternateLoadableFile></alternateLoadableFile>
+        </loading>
+        <subordinates>
+        </subordinates>
+      </compileType>
+      <makeCustomizationType>
+        <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
+        <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
+        <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
+      </makeCustomizationType>
+      <item path="ADC.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="AppConfig.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <C18>
+        <property key="code-model" value="ml"/>
+        <property key="data-model" value="oa-"/>
+        <property key="default-char-unsigned" value="false"/>
+        <property key="enable-all-optimizations" value="true"/>
+        <property key="enable-int-promotion" value="false"/>
+        <property key="enable-multi-bank-stack-model" value="true"/>
+        <property key="enable-ob" value="false"/>
+        <property key="enable-od" value="false"/>
+        <property key="enable-om" value="true"/>
+        <property key="enable-on" value="true"/>
+        <property key="enable-op" value="false"/>
+        <property key="enable-opa" value="false"/>
+        <property key="enable-or" value="false"/>
+        <property key="enable-os" value="true"/>
+        <property key="enable-ot" value="false"/>
+        <property key="enable-ou" value="false"/>
+        <property key="enable-ow" value="true"/>
+        <property key="extra-include-directories" value="."/>
+        <property key="optimization-master" value="Enable all"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="procedural-abstraction-passes" value="4"/>
+        <property key="storage-class" value="sca"/>
+        <property key="verbose" value="false"/>
+        <property key="warning-level" value="2"/>
+      </C18>
+      <C18-AS>
+        <property key="cross.reference.file" value=""/>
+        <property key="default.radix" value="HEX"/>
+        <property key="enable.case.sensitivity" value="true"/>
+        <property key="hex.output.format" value="INHX32"/>
+        <property key="preprocessor.macros" value=""/>
+        <property key="warning.level" value="0"/>
+      </C18-AS>
+      <C18-LD>
+        <property key="cod-file" value="false"/>
+        <property key="extra-lib-directories" value=".."/>
+        <property key="hex-output-format" value="INHX32"/>
+        <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
+      </C18-LD>
+      <C18LanguageToolchain>
+        <property key="extended-mode" value="true"/>
+        <property key="extended-mode-mcc18" value="true"/>
+        <property key="extended-mode-mpasm" value="true"/>
+        <property key="extended-mode-mplink" value="true"/>
+        <property key="stack-analysis" value="false"/>
+        <property key="stack-analysis-mcc18" value="false"/>
+        <property key="stack-analysis-mplink" value="false"/>
+      </C18LanguageToolchain>
+      <item path="CustomHTTPApp.c" ex="false" overriding="false">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="EMAIL.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="HTTPApp/HTTPAppIO.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="HTTPClient.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <ICD3PlatformTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="Freeze Peripherals" value="true"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="hwtoolclock.frcindebug" value="false"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="false"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram" value="true"/>
+        <property key="memories.instruction.ram.end"
+                  value="${memories.instruction.ram.end.value}"/>
+        <property key="memories.instruction.ram.start"
+                  value="${memories.instruction.ram.start.value}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.end" value="0x1fff7"/>
+        <property key="memories.programmemory.partition2" value="true"/>
+        <property key="memories.programmemory.partition2.end"
+                  value="${memories.programmemory.partition2.end.value}"/>
+        <property key="memories.programmemory.partition2.start"
+                  value="${memories.programmemory.partition2.start.value}"/>
+        <property key="memories.programmemory.start" value="0x0"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveprogramrange.end" value="0x1fff7"/>
+        <property key="programoptions.preserveprogramrange.start" value="0x0"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programcalmem" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="programoptions.testmodeentrymethod" value="VPPFirst"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="false"/>
+        <property key="voltagevalue" value="3.25"/>
+      </ICD3PlatformTool>
+      <item path="IO.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="Input.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="MCP79402.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="Main.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <item path="NTP.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+      <RealICEPlatformTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="Freeze Peripherals" value="true"/>
+        <property key="RIExTrigs.Five" value="OFF"/>
+        <property key="RIExTrigs.Four" value="OFF"/>
+        <property key="RIExTrigs.One" value="OFF"/>
+        <property key="RIExTrigs.Seven" value="OFF"/>
+        <property key="RIExTrigs.Six" value="OFF"/>
+        <property key="RIExTrigs.Three" value="OFF"/>
+        <property key="RIExTrigs.Two" value="OFF"/>
+        <property key="RIExTrigs.Zero" value="OFF"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
+        <property key="hwtoolclock.frcindebug" value="false"/>
+        <property key="hwtoolclock.instructionspeed" value="4"/>
+        <property key="hwtoolclock.units" value="mips"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram" value="true"/>
+        <property key="memories.instruction.ram.end"
+                  value="${memories.instruction.ram.end.value}"/>
+        <property key="memories.instruction.ram.start"
+                  value="${memories.instruction.ram.start.value}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.end" value="0x1fff7"/>
+        <property key="memories.programmemory.partition2" value="true"/>
+        <property key="memories.programmemory.partition2.end"
+                  value="${memories.programmemory.partition2.end.value}"/>
+        <property key="memories.programmemory.partition2.start"
+                  value="${memories.programmemory.partition2.start.value}"/>
+        <property key="memories.programmemory.start" value="0x0"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveprogramrange.end" value="0x1fff7"/>
+        <property key="programoptions.preserveprogramrange.start" value="0x0"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programcalmem" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="false"/>
+        <property key="tracecontrol.disablemacros" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
+        <property key="tracecontrol.medium" value="0"/>
+        <property key="tracecontrol.portselect" value="0"/>
+        <property key="tracecontrol.select" value="0"/>
+        <property key="tracecontrol.spiselect" value="0"/>
+        <property key="tracecontrol.stallontracebufferfull" value="false"/>
+        <property key="tracecontrol.tracebufmax" value="546000"/>
+        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
+        <property key="tracecontrol.tracefilemax" value="10000000"/>
+        <property key="voltagevalue" value="3.25"/>
+      </RealICEPlatformTool>
+      <item path="Relay.c" ex="false" overriding="true">
+        <C18>
+          <property key="code-model" value="ml"/>
+          <property key="data-model" value="oa-"/>
+          <property key="default-char-unsigned" value="false"/>
+          <property key="enable-all-optimizations" value="false"/>
+          <property key="enable-int-promotion" value="false"/>
+          <property key="enable-multi-bank-stack-model" value="true"/>
+          <property key="enable-ob" value="false"/>
+          <property key="enable-od" value="false"/>
+          <property key="enable-om" value="true"/>
+          <property key="enable-on" value="true"/>
+          <property key="enable-op" value="false"/>
+          <property key="enable-opa" value="false"/>
+          <property key="enable-or" value="false"/>
+          <property key="enable-os" value="true"/>
+          <property key="enable-ot" value="false"/>
+          <property key="enable-ou" value="false"/>
+          <property key="enable-ow" value="true"/>
+          <property key="extra-include-directories" value="."/>
+          <property key="optimization-master" value="Disable all"/>
+          <property key="preprocessor-macros" value=""/>
+          <property key="procedural-abstraction-passes" value="4"/>
+          <property key="storage-class" value="sca"/>
+          <property key="verbose" value="false"/>
+          <property key="warning-level" value="2"/>
+        </C18>
+        <C18-AS>
+        </C18-AS>
+        <C18-LD>
+        </C18-LD>
+        <C18LanguageToolchain>
+          <property key="extended-mode" value="true"/>
+          <property key="extended-mode-mcc18" value="true"/>
+          <property key="extended-mode-mpasm" value="true"/>
+          <property key="extended-mode-mplink" value="true"/>
+          <property key="stack-analysis" value="false"/>
+          <property key="stack-analysis-mcc18" value="false"/>
+          <property key="stack-analysis-mplink" value="false"/>
+        </C18LanguageToolchain>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="/style.css"></link>
+        <script type="text/javascript" src="/jquery.js"></script>
+        <script type="text/javascript" src="/main.js"></script>
+        <script type="text/javascript" src="io.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+            <h1>IO Management</h1>
+
+            <div class="result hidden" id="msg"></div>
+            
+            <p>The IOs are pull-upped lines. The 0 logic corresponds to 0V and the 1 logic corresponds to 5V.</p>
+
+            <table class="tb tb4">
+                <thead>
+                    <tr>
+                        <th colspan="4">Output status</th>
+                    </tr>
+                    <tr>
+                        <th>IO Number</th>
+                        <th>Direction</th>
+                        <th>Status</th>
+                        <th>Startup status</th>
+                    </tr>
+                </thead>
+                <tbody id="table1">
+                    <!--<tr>
+                        <td>Input/Output 1:</td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="io1" onclick="inout(this);"/>
+                                <label class="onoff-label" for="io1">
+                                    <span class="onoff-inner onoff-inout"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="out1" onclick="output(this);"/>
+                                <label class="onoff-label" for="out1">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="onoff">
+                                <input type="checkbox" class="onoff-checkbox" id="de1" onclick="def(this);"/>
+                                <label class="onoff-label" for="de1">
+                                    <span class="onoff-inner onoff-onoff"></span>
+                                    <span class="onoff-switch"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>-->
+                </tbody>
+            </table>
+
+            <table class="tb tb6">
+                <thead>
+                    <tr>
+                        <th colspan="6">Remote commands</th>
+                    </tr>
+                    <tr>
+                        <th>Number</th>
+                        <th>IPV4 or URL Address</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Output</th>
+                        <th>Save</th>
+                    </tr>
+                </thead>
+                <tbody id="table2">
+                </tbody>
+            </table>
+
+        </div>
+
+        ~inc:footer.inc~
+        <script type="text/javascript">
+            window.onload = function () {
+                selectMenu(4);
+                createHTML();
+                setTimeout("updateStatus()", 500);
+                setTimeout("updateIO(true, true)", 100);
+                setTimeout("updateRemoteIO()", 200);
+            };
+        </script>
+    </body>
+</html>

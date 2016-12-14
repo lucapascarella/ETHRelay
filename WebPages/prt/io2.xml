@@ -1,0 +1,37 @@
+<r>
+    <ioAdd1>~ioAdd(1)~</ioAdd1>
+    <ioAdd2>~ioAdd(2)~</ioAdd2>
+    <ioAdd3>~ioAdd(3)~</ioAdd3>
+    <ioAdd4>~ioAdd(4)~</ioAdd4>
+    <ioAdd5>~ioAdd(5)~</ioAdd5>
+    <ioAdd6>~ioAdd(6)~</ioAdd6>
+    <ioAdd7>~ioAdd(7)~</ioAdd7>
+    <ioAdd8>~ioAdd(8)~</ioAdd8>
+    
+    <ioUser1>~ioUser(1)~</ioUser1>
+    <ioUser2>~ioUser(2)~</ioUser2>
+    <ioUser3>~ioUser(3)~</ioUser3>
+    <ioUser4>~ioUser(4)~</ioUser4>
+    <ioUser5>~ioUser(5)~</ioUser5>
+    <ioUser6>~ioUser(6)~</ioUser6>
+    <ioUser7>~ioUser(7)~</ioUser7>
+    <ioUser8>~ioUser(8)~</ioUser8>
+    
+    <ioPass1>~ioPass(1)~</ioPass1>
+    <ioPass2>~ioPass(2)~</ioPass2>
+    <ioPass3>~ioPass(3)~</ioPass3>
+    <ioPass4>~ioPass(4)~</ioPass4>
+    <ioPass5>~ioPass(5)~</ioPass5>
+    <ioPass6>~ioPass(6)~</ioPass6>
+    <ioPass7>~ioPass(7)~</ioPass7>
+    <ioPass8>~ioPass(8)~</ioPass8>
+    
+    <ioSel1>~ioSel(1)~</ioSel1>
+    <ioSel2>~ioSel(2)~</ioSel2>
+    <ioSel3>~ioSel(3)~</ioSel3>
+    <ioSel4>~ioSel(4)~</ioSel4>
+    <ioSel5>~ioSel(5)~</ioSel5>
+    <ioSel6>~ioSel(6)~</ioSel6>
+    <ioSel7>~ioSel(7)~</ioSel7>
+    <ioSel8>~ioSel(8)~</ioSel8>
+</r>

@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="/style.css"></link>
+        <script type="text/javascript" src="/jquery.js"></script>
+        <script type="text/javascript" src="/main.js"></script>
+        <script type="text/javascript" src="analog.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+            <h1>Analog Management</h1>
+
+            <div class="result hidden" id="msg"></div>
+
+            <p>The Analog inputs recognize 1024 values from 0V to 5V.</p>
+
+            <table class="tb tb4adc">
+                <thead>
+                    <tr>
+                        <th colspan="4">Basic functions</th>
+                    </tr>
+                    <tr>
+                        <th>Number</th>
+                        <th>Visual bar</th>
+                        <th>Value</th>
+                        <th>Voltage</th>
+                    </tr>
+                </thead>
+                <tbody id="table1">
+                    <tr>
+                        <td>Analog 1:</td>
+                        <td><progress id="ap1" max="1023"></progress></td>
+                        <td><label id="an1"></label></td>
+                        <td><label id="v1"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Analog 2:</td>
+                        <td><progress id="ap2" max="1023"></progress></td>
+                        <td><label id="an2"></label></td>
+                        <td><label id="v2"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Analog 3:</td>
+                        <td><progress id="ap3" max="1023"></progress></td>
+                        <td><label id="an3"></label></td>
+                        <td><label id="v3"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Analog 4:</td>
+                        <td><progress id="ap4" max="1023"></progress></td>
+                        <td><label id="an4"></label></td>
+                        <td><label id="v4"></label></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="tb tb7">
+                <thead>
+                    <tr>
+                        <th colspan="7">Advanced functions</th>
+                    </tr>
+                    <tr>
+                        <th>Number</th>
+                        <th>Upper Threshold</th>
+                        <th>Lower Threshold</th>
+                        <th>Digital Output</th>
+                        <th>Relay</th>
+                        <th>Action</th>
+                        <th>Save</th>
+                    </tr>
+                </thead>
+                <tbody id="table2">
+                    <tr>
+                        <td>Analog 1:</td>
+                        <td>
+                            <select id="ah1">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="al1">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ao1">
+                                    <option value="0">None</option>
+                                <option value="1">Output 1</option>
+                                <option value="2">Output 2</option>
+                                <option value="3">Output 3</option>
+                                <option value="4">Output 4</option>
+                                <option value="5">Output 5</option>
+                                <option value="6">Output 6</option>
+                                <option value="7">Output 7</option>
+                                <option value="8">Output 8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ar1">
+                                <option value="0">None</option>
+                                <option value="1">Relay 1</option>
+                                <option value="2">Relay 2</option>
+                                <option value="3">Relay 3</option>
+                                <option value="4">Relay 4</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ad1">
+                                <option value="0">Low</option>
+                                <option value="1">High</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="as1" onclick="save(this);" title=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Analog 2:</td>
+                        <td>
+                            <select id="ah2">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="al2">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ao2">
+                                <option value="0">None</option>
+                                <option value="1">Output 1</option>
+                                <option value="2">Output 2</option>
+                                <option value="3">Output 3</option>
+                                <option value="4">Output 4</option>
+                                <option value="5">Output 5</option>
+                                <option value="6">Output 6</option>
+                                <option value="7">Output 7</option>
+                                <option value="8">Output 8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ar2">
+                                <option value="0">None</option>
+                                <option value="1">Relay 1</option>
+                                <option value="2">Relay 2</option>
+                                <option value="3">Relay 3</option>
+                                <option value="4">Relay 4</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ad2">
+                                <option value="0">Low</option>
+                                <option value="1">High</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="as2" onclick="save(this);" title=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Analog 3:</td>
+                        <td>
+                            <select id="ah3">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="al3">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ao3">
+                                <option value="0">None</option>
+                                <option value="1">Output 1</option>
+                                <option value="2">Output 2</option>
+                                <option value="3">Output 3</option>
+                                <option value="4">Output 4</option>
+                                <option value="5">Output 5</option>
+                                <option value="6">Output 6</option>
+                                <option value="7">Output 7</option>
+                                <option value="8">Output 8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ar3">
+                                <option value="0">None</option>
+                                <option value="1">Relay 1</option>
+                                <option value="2">Relay 2</option>
+                                <option value="3">Relay 3</option>
+                                <option value="4">Relay 4</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ad3">
+                                <option value="0">Low</option>
+                                <option value="1">High</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="as3" onclick="save(this);" title=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Analog 4:</td>
+                        <td>
+                            <select id="ah4">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="al4">
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ao4">
+                                <option value="0">None</option>
+                                <option value="1">Output 1</option>
+                                <option value="2">Output 2</option>
+                                <option value="3">Output 3</option>
+                                <option value="4">Output 4</option>
+                                <option value="5">Output 5</option>
+                                <option value="6">Output 6</option>
+                                <option value="7">Output 7</option>
+                                <option value="8">Output 8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ar4">
+                                <option value="0">None</option>
+                                <option value="1">Relay 1</option>
+                                <option value="2">Relay 2</option>
+                                <option value="3">Relay 3</option>
+                                <option value="4">Relay 4</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="ad4">
+                                <option value="0">Low</option>
+                                <option value="1">High</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="as4" onclick="save(this);" title=""/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        ~inc:footer.inc~
+        <script type="text/javascript">
+            window.onload = function () {
+                selectMenu(6);
+                updateStatus();
+                updateSelectWithOptions();
+                updateAnalog(true, true);
+            };
+        </script>
+    </body>
+</html>

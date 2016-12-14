@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="/style.css"></link>
+        <script type="text/javascript" src="/jquery.js"></script>
+        <script type="text/javascript" src="/main.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+            <h1>Authentication page</h1>
+
+            <div class="result hidden" id="msg"></div>
+            <div id="waitLogout" class="hidden result unk">Wait logout...<br/>You will redirect to home page in few seconds.</div>
+            <div id="passwordChanged" class="hidden result ok">The password has been changed.<br/>You will be able to use the new password at next restart.</div>
+
+            <p>Login successful! This authentication is valid until you close your browser or click on "Do logout" button.</p>
+            <p>You can change your credentials by typing new values in the following fields:</p>
+
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th colspan="3">Authentication settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" id="user" maxlength="15" title="The length of this field must be between 4 and 15 characters"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="pass" maxlength="15" title="The length of this field must be between 4 and 15 characters"/></td>
+                        <td><label title="Show hidden password"><input type="checkbox" id="show" onclick="showPassword();" title="Show hidden password"/>Show password</label></td>
+                    </tr>
+                    <tr>
+                        <td>Actions:</td>
+                        <td>
+                            <input type="button" id="saveAuth" disabled="disabled" value="Save" onclick="saveAuth(this);" title="The changes will be saved immediately, however they will be available at the next restart"/>
+                            <input type="button" id="saveAndApplyAuth" disabled="disabled"  value="Save and Apply" onclick="saveAndApplyAuth(this);" title="The changes will be saved and they will be available immediately"/>
+                            <input type="button" id="doLogout" value="Do logout" onclick="doLogout();" title="Force a disconnection"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        ~inc:footer.inc~
+        <script type="text/javascript">
+            var user = "~user~";
+            var pass = "~pass~";
+
+            window.onload = function () {
+                selectMenu(2);
+                updateStatus();
+                $("#user").val(user);
+                $("#pass").val(pass);
+            };
+
+            $("input[type=text], input[type=password]").bind("paste cut keydown", function (e) {
+                disableSaveAuth(false);
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="../style.css"></link>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript" src="../main.js"></script>
+        <script type="text/javascript" src="local.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+
+            <h1>Local LAN Configurations</h1>
+
+            <p>From this page you can check the Interne connection, configure the local LAN parameters, configure the EMail notifier and the Dynamic DNS manager.</p>
+
+            <div class="result hidden" id="msg"></div>
+
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th colspan="3">Internet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ping address:</td>
+                        <td><input type="url" id="ping" maxlength="15" onclick="disPing(this);" placeholder="192.168.1.1" title="Insert only a valid IPV4 address to send an ICMP request"/></td>
+                        <td><input type="button" id="pingButton" value="Ping IP" disabled onclick="pingIP(this);" title="Ask for a ping request"/></td>
+                    </tr>
+                    <tr>
+                        <td>DNS test:</td>
+                        <td><input type="url" id="url" maxlength="32" onclick="disUrl(this);" placeholder="www.google.com" title="Insert a valid domain name to test DNS resolution"/></td>
+                        <td><input type="button" id="urlButton" value="DNS Resolution" disabled onClick="urlIP(this);" title="Ask for a DNS resolution"/></td>
+                    </tr>
+                    <tr>
+                        <td>Results:</td>
+                        <td colspan="2"><label id="res"></label></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th colspan="3">Local network</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MAC Address:</td>
+                        <td><input type="text" id="mac" maxlength="17" title="MAC Address"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Host Name:</td>
+                        <td><input type="text" id="host" maxlength="16" title="NetBIOS Host name"/></td>
+                        <td><label id="hostLink"></label></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>ICMP Server:</td>
+                        <td><label><input type="checkbox" id="icmp" onclick="icmp()" title="Enable or disable the Ping response capabilities"/>Enable ICMP Server</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>DHCP:</td>
+                        <td><label><input type="checkbox" id="dhcp" onclick="dhcp()" title="Enable or disable the DHCP service"/>Enable DHCP</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>IP Address:</td>
+                        <td><input type="text" id="ip" maxlength="15" title="Board IPV4 Address"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Gateway:</td>
+                        <td><input type="text" id="gw" maxlength="15" title="IPV4 Gateway"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Subnet Mask:</td>
+                        <td><input type="text" id="sub" maxlength="15" title="IPV4 Subnet mask"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Primary DNS:</td>
+                        <td><input type="text" id="dns1" maxlength="15" title="IPV4 primary DNS"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Secondary DNS:</td>
+                        <td><input type="text" id="dns2" maxlength="15" title="IPV4 secondary DNS"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Actions:</td>
+                        <td>
+                            <input type="button" id="saveLocal" value="Save" onclick="saveLocal(this);" title="The changes will be saved immediately, however they will be available at the next restart"/>
+                            <input type="button" id="saveAndApplyLocal" value="Save and Apply" onclick="saveAndApplyLocal(this);" title="The changes will be saved and they will be available immediately"/>
+                            <input type="button" id="resetValueLocal" value="Reset" onclick="resetValueLocal();" title="Reset changes"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table> 
+
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th colspan="3">EMail Notification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Status:</td>
+                        <td colspan="2"><label id="smtpStatus"></label></td>
+                    </tr>
+                    <tr>
+                        <td>SMTP Server:</td>
+                        <td><input type="text" id="smtpServer" maxlength="32" title="SMTP Server address"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>SMTP Port:</td>
+                        <td><input type="number" id="smtpPort" min="25" max="65535" title="SMTP Server port. No SSL or TLS is supported"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" id="smtpUser" maxlength="32" title="Username or email address on SMTP Server"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="smtpPass" maxlength="32" title="Password on SMTP Server"/></td>
+                        <td><label title="Show hidden password"><input type="checkbox" id="smtpPassShow" value="1" onclick="showPasswordSMTP();" title="Show hidden password"/>Show password</label></td>
+                    </tr>
+                    <tr>
+                        <td>To:</td>
+                        <td><input type="text" id="smtpTo" maxlength="60" title="Destination email address"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Subject:</td>
+                        <td><input type="text" id="smtpSubject" maxlength="32" title="Subject of the delivered email"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Actions:</td>
+                        <td>
+                            <input type="button" id="saveSMTP" value="Save" onclick="saveSMTP(this);" title="The changes will be saved immediately, however they will be available at the next restart"/>
+                            <input type="button" id="saveAndApplySMTP" value="Save and Apply" onclick="saveAndApplySMTP(this);" title="The changes will be saved and they will be available immediately"/>
+                            <input type="button" id="resetValueSMTP" value="Reset" onclick="resetValueSMTP();" title="Reset changes"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th colspan="3">Dynamic DNS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Status:</td>
+                        <td colspan="2"><label id="dnss"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Public IP:</td>
+                        <td><label id="public"></label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Enable DDNS:</td>
+                        <td><label title="Enable or disable the Dynamic DNS"><input type="checkbox" id="edns" onclick="edns()" title="Enable or disable the Dynamic DNS"/>Enable Dynamic DNS</label></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Dynamic DNS Service:</td>
+                        <td>
+                            <select id="service" onchange="disableSaveDNS(false);" title="Dynamic DNS web service">
+                                <option value="0">DynDNS (www.dyndns.com)</option>
+                                <option value="1">No-IP (www.no-ip.com)</option>
+                                <option value="2">DNS-O-Matic (www.dnsomatic.com)</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Host:</td>
+                        <td><input type="text" id="dhost" maxlength="40" title="User host address"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" id="dusr" maxlength="40" title="Account username of DDNS Service"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="dpss" maxlength="40" title="Account password of DDNS Service"/></td>
+                        <td><label title="Show hidden password"><input type="checkbox" id="dshow" value="1" onclick="showPasswordDNS();" title="Show hidden password"/>Show password</label></td>
+                    </tr>
+                    <tr>
+                        <td>Actions:</td>
+                        <td>
+                            <input type="button" id="saveDNS" value="Save" onclick="saveDNS(this);" title="The changes will be saved immediately, however they will be available at the next restart"/>
+                            <input type="button" id="saveAndApplyDNS" value="Save and Apply" onclick="saveAndApplyDNS(this);" title="The changes will be saved and they will be available immediately"/>
+                            <input type="button" id="resetValueDNS" value="Reset" onclick="resetValueDNS();" title="Reset changes"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="error"><b>CAUTION:</b> Incorrect settings may cause the board to lose network connectivity.</p>
+        </div>
+        ~inc:footer.inc~
+        <script type="text/javascript">
+            // Local values
+            var mac_val = "~mac~";
+            var host_val = "~hostname~";
+            var icmp_val = "~icmp~"; // 1 => "true" or 0 => "false"
+            var dhcp_val = "~dhcp~"; // 1 => "true" or 0 => "false"
+            var ip_val = "~ip~";
+            var gw_val = "~gw~";
+            var subnet_val = "~subnet~";
+            var dns1_val = "~dns1~";
+            var dns2_val = "~dns2~";
+            // SMTP variables
+            var smtp_status_val = "~smtpStatus~";
+            var smtp_server_val = "~smtpServer~";
+            var smtp_port_val = "~smtpPort~";
+            var smtp_user_val = "~smtpUser~";
+            var smtp_pass_val = "~smtpPass~";
+            var smtp_to_val = "~smtpTo~";
+            var smtp_subject_val = "~smtpSubject~";
+            // Dynamic DNS values
+            var dns_public_val = "~ddnsPublic~";
+            var dns_enabled_val = "~ddnsEnabled~";
+            var dns_service_val = "~ddnsService~";
+            var dns_host_val = "~ddnsHost~";
+            var dns_user_val = "~ddnsUser~";
+            var dns_pass_val = "~ddnsPass~";
+
+            $("#mac, #host, #icmp, #dhcp, #ip, #gw, #sub, #dns1, #dns2").bind("paste cut keydown", function (e) {
+                disableSaveLocal(false);
+            });
+
+            $("#smtpServer, #smtpPort, #smtpUser, #smtpPass, #smtpTo, #smtpSubject").bind("paste cut keydown", function (e) {
+                disableSaveSMTP(false);
+            });
+
+            $("#edns, #service, #dhost, #dusr, #dpss").bind("paste cut keydown", function (e) {
+                disableSaveDNS(false);
+            });
+
+            window.onload = function () {
+                resetValueLocal();
+                resetValueSMTP();
+                resetValueDNS();
+                selectMenu(3);
+                ddnsWorker();
+                updateStatus();
+            };
+        </script>
+    </body>
+</html>

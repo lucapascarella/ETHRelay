@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>ETH Relay - LP Systems</title>
+        <link type="text/css" rel="stylesheet" href="../style.css"></link>
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript" src="../main.js"></script>
+        <script type="text/javascript" src="date.js"></script>
+    </head>
+
+    <body>
+        ~inc:menu.inc~
+        <div id="content">
+
+            <h1>Date and Time setting</h1>
+
+            <p style="text-align:justify">In this page you can manually configure Date and Time or use a NTP service in relation of your geographical and DST area.</p>
+
+            <div class="result hidden" id="msg"></div>
+
+            <table class="tb">
+                <thead>
+                    <tr>
+                        <th colspan="3">Date &amp; Time settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Current time:</td>
+                        <td><label id="time"></label>&nbsp;(hh:mm:ss)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Current date:</td>
+                        <td><label id="date"></label>&nbsp;(dd/mm/yyyy week)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Manual time:</td>
+                        <td>
+                            <input type="number" id="hour" maxlength="2" style="width: 40px;" min="0" max="23" placeholder="hh" title="24 hours clock, from 00 to 23"/>&nbsp;:
+                            <input type="number" id="minute" maxlength="2" style="width: 40px;" min="0" max="59" placeholder="mm" title="Minutes from 00 to 59"/>&nbsp;:
+                            <input type="number" id="second" maxlength="2" style="width: 40px;" min="0" max="59" placeholder="ss" title="Seconds from 00 to 59"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="number" id="day" maxlength="2" style="width: 40px;" min="1" max="31" placeholder="dd" title="Day of the month, from 1 to 31"/>&nbsp;/
+                            <input type="number" id="month" maxlength="2" style="width: 40px;" min="1" max="12" placeholder="mm" title="Month of year, from 1 to 12"/>&nbsp;/
+                            <input type="number" id="year" maxlength="4" style="width: 55px;" min="2016" max="2199" placeholder="yyyy" title="Year in full 4 digits format"/>
+                        </td>
+                        <td>
+                            <input type="button" id="saveDateTime" value="Set time" disabled onclick="ajaxSaveDateTime(this);" title="Set date and time manually"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Greenwich Mean Time:</td>
+                        <td><select id="gmt" style="width: 450px;">
+                                <option value="0">(GMT -12:00) Eniwetok, Kwajalein</option>
+                                <option value="1">(GMT -11:00) Midway Island, Samoa</option>
+                                <option value="2">(GMT -10:00) Hawaii</option>
+                                <option value="3">(GMT -9:00) Alaska</option>
+                                <option value="4">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                                <option value="5">(GMT -7:00) Mountain Time (US &amp; Canada), Arizona, Chihuahua,La Paz, Mazatlan</option>
+                                <option value="6">(GMT -6:00) Central America, Central Time (US &amp; Canada), Mexico City, Monterrey, Guadalajara</option>
+                                <option value="7">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima, Quito, Rio Branco, Indiana(East)</option>
+                                <option value="8">(GMT -4:30) Caracas</option>
+                                <option value="9">(GMT -4:00) Atlantic Time (Canada), La Poz, San Juan, Santiago, Asuncion, Manaus, Georgetown</option>
+                                <option value="10">(GMT -3:30) Newfoundland</option>
+                                <option value="11">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                                <option value="12">(GMT -2:00) Mid-Atlantic</option>
+                                <option value="13">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+                                <option value="14">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                                <option value="15">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris, Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                                <option value="16">(GMT +2:00) Kaliningrad, South Africa</option>
+                                <option value="17">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                                <option value="18">(GMT +3:30) Tehran</option>
+                                <option value="19">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                                <option value="20">(GMT +4:30) Kabul</option>
+                                <option value="21">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                                <option value="22">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                                <option value="23">(GMT +5:45) Kathmandu</option>
+                                <option value="24">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                                <option value="25">(GMT +6:30) Yangon (Rangoon)</option>
+                                <option value="26">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                                <option value="27">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                                <option value="28">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                                <option value="29">(GMT +9:30) Adelaide, Darwin</option>
+                                <option value="30">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                                <option value="31">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                                <option value="32">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                                <option value="33">(GMT +13:00) Nuku'alofa</option>
+                            </select></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Daylight Saving Time:</td>
+                        <td>
+                            <select id="dst">
+                                <option value="0">0 hour</option>
+                                <option value="1">1 hour</option>
+                                <option value="2">2 hour</option>
+                                <option value="3">3 hours</option>
+                                <option value="4">4 hours</option>
+                                <option value="5">5 hours</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label title="If checked the DST hours are added"><input type="checkbox" id="dste" onclick="enableDST();" title="If checked the DST hours are added"/>Enabled DST</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NTP Server:</td>
+                        <td>
+                            <select id="ntp">
+                                <option value="0">pool.ntp.org</option>
+                                <option value="1">europe.pool.ntp.org</option>
+                                <option value="2">asia.pool.ntp.org</option>
+                                <option value="3">oceania.pool.ntp.org</option>
+                                <option value="4">north-america.pool.ntp.org</option>
+                                <option value="5">south-america.pool.ntp.org</option>
+                                <option value="6">africa.pool.ntp.org</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label title="If checked the NTP service is enabled"><input type="checkbox" id="ntpe" onclick="enableNTP();" title="If checked the NTP service is enabled"/>Enable Network Time Protocol</label>
+                            <input type="button" id="forceUpdate" value="Force Update" onclick="forceUpdate(this);" title="Reuqets a NTP update"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Actions:</td>
+                        <td>
+                            <input type="button" id="saveDate" value="Save" onclick="saveDate(this);" title="The changes will be saved but they will be available at the next restart"/>
+                            <!--<input type="button" id="saveAndApplyDate" value="Save and Apply" onclick="saveAndApplyDate(this);" title="The changes will be saved and they will be available immediately"/>-->
+                            <input type="button" id="resetDate" value="Reset" onclick="resetDate();" title="Reset changes"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="error"><b>WARNING:</b> The board will lose the date and time if the power will be missing.</p>
+
+        </div>
+        ~inc:footer.inc~
+        <script type="text/javascript">
+            var time = "~time~";
+            var date = "~date~";
+            var gmt = "~gmt~";
+            var dst_enabled = "~dste~";
+            var dst = "~dst~";
+            var ntp_enabled = "~ntpe~";
+            var ntp = "~ntps~";
+
+            $("#hour, #minute, #second, #day, #month, #year").bind("paste cut keydown change", function (e) {
+                disableSaveDataTime(false);
+            });
+
+
+
+            function resetDate() {
+                var cond = false;
+                // Disable or enable the buttons
+                $("#gmt").prop('disabled', cond);
+                $("#dste").prop('disabled', cond);
+                $("#dst").prop('disabled', cond);
+                $("#ntpe").prop('disabled', cond);
+                $("#ntp").prop('disabled', cond);
+                // Load the appropriate values
+                $("#time").text(time);
+                $("#date").text(date);
+                $("#gmt").val(gmt);
+                $("#dste").prop('checked', dst_enabled === "0" ? false : true);
+                $("#dst").val(dst);
+                $("#ntpe").prop('checked', ntp_enabled === "0" ? false : true);
+                $("#ntp").val(ntp);
+                // Disable Save buttons
+                disableSaveDate(true);
+            }
+
+            $("#gmt, #dste, #dst, #ntpe, #ntp").bind("paste cut keydown change", function (e) {
+                disableSaveDate(false);
+            });
+
+            window.onload = function () {
+                resetDate();
+                selectMenu(7);
+                // One second worker
+                getDate();
+                updateStatus();
+
+// TODO 
+                enableDST();
+                enableNTP();
+            };
+        </script>
+    </body>
+</html>
