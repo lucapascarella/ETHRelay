@@ -235,7 +235,8 @@ void loadDefaultAppConfig(void) {
     ExtRTCCReadMACAddress((BYTE*) & appConfig.ip.fields.MyMACAddr, sizeof (appConfig.ip.fields.MyMACAddr));
     //ExtRTCCReadMACAddress((BYTE*) array2, sizeof (array2));
     // Load the default NetBIOS Host Name
-    memcpypgm2ram(appConfig.ip.fields.NetBIOSName, (rom void*) MY_DEFAULT_HOST_NAME, 16);
+    memset(appConfig.ip.fields.NetBIOSName, '\0', sizeof (appConfig.ip.fields.NetBIOSName));
+    memcpypgm2ram(appConfig.ip.fields.NetBIOSName, (rom void*) MY_DEFAULT_HOST_NAME, 8);
     FormatNetBIOSName(appConfig.ip.fields.NetBIOSName);
     // Initialize default SMTP values
     appConfig.ip.fields.smtpPort = 25;
@@ -268,7 +269,7 @@ void loadDefaultAppConfig(void) {
         appConfig.gpio.fields.ioBits[i].ioDirection = 1; // 1 = Input
         appConfig.gpio.fields.ioBits[i].ioDefault = 0; // 0 = Low
     }
-    
+
     // Relay
     for (i = 0; i < 4; i++) {
         appConfig.gpio.fields.relay[i].bits.startUp = FALSE;
