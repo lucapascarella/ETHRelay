@@ -21,6 +21,10 @@ void RelayTesk(void) {
     BYTE i, hour, minute, hon, mon, hoff, moff;
     BOOL act[4], dir[4];
 
+    // Reset act variable to prevent unwanted switch
+    for (i = 0; i < 4; i++)
+        act[i] = dir[i] = 0;
+
     hour = ExtRTCCGetHours();
     minute = ExtRTCCGetMinutes();
     for (i = 0; i < 4; i++) {
@@ -75,8 +79,8 @@ void RelayTesk(void) {
 
     for (i = 0; i < 4; i++) {
         if (act[i] == TRUE) {
-            act[i] = FALSE;
             setRelay(i + 1, dir[i]);
+            act[i] = FALSE;
         }
     }
 }
