@@ -10,6 +10,7 @@
 void TestStart(void) {
 
     DWORD timeout;
+    INT32 i;
 
     timeout = TickGet();
     if (readInput(INPUT_1) == BUTTON_PRESSED) {
@@ -20,6 +21,12 @@ void TestStart(void) {
             TestADC();
             TestEEPROM();
             TestEthGet();
+
+            // Clear all EEPROM content
+            //            XEEBeginWrite(0x0000);
+            //            for (i = 0; i < 0x20000; i++)
+            //                XEEWrite(0xFF);
+            //            XEEEndWrite();
         }
     }
 }
