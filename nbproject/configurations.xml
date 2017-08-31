@@ -83,6 +83,7 @@
       <itemPath>Main.h</itemPath>
       <itemPath>HardwareProfile.h</itemPath>
       <itemPath>HTTPPrint.h</itemPath>
+      <itemPath>Test.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -153,6 +154,7 @@
       </logicalFolder>
       <itemPath>Main.c</itemPath>
       <itemPath>CustomHTTPApp.c</itemPath>
+      <itemPath>Test.c</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="WebPages" projectFiles="true">
       <logicalFolder name="f1" displayName="prt" projectFiles="true">

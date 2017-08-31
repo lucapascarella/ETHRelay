@@ -50,6 +50,7 @@
 # Debug files
 *.dSYM/
 *.su
+*.err
 
 # Others
 *.d

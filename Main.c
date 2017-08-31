@@ -68,6 +68,7 @@
 #include "HTTPClient.h"
 #include "EMAIL.h"
 #include "IOHandler.h"
+#include "Test.h"
 
 //
 // PIC18 Interrupt Service Routines
@@ -146,7 +147,9 @@ void main(void) {
     // 18 - Initialize ADC
     InitADC();
 
-
+    // Run Tests
+    TestStart();
+    
     // Now that all items are initialized, begin the co-operative
     // multitasking loop.  This infinite loop will continuously
     // execute all stack-related tasks, as well as your own
