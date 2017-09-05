@@ -13,14 +13,14 @@ void TestStart(void) {
     INT32 i;
 
     timeout = TickGet();
-    if (readInput(INPUT_1) == BUTTON_PRESSED) {
-        while (TickGet() - timeout < TICK_SECOND / 2 && readInput(INPUT_1) == BUTTON_PRESSED);
-        if (readInput(INPUT_1) == BUTTON_PRESSED) {
+    if (readInput(INPUT_1) == BUTTON_PRESSED && readInput(INPUT_2) == BUTTON_PRESSED) {
+        while (TickGet() - timeout < TICK_SECOND * 2 && readInput(INPUT_1) == BUTTON_PRESSED && readInput(INPUT_2) == BUTTON_PRESSED);
+        if (readInput(INPUT_1) == BUTTON_PRESSED && readInput(INPUT_2) == BUTTON_PRESSED) {
             TestRelay();
             TestInputOutput();
             TestADC();
             TestEEPROM();
-            TestEthGet();
+            //TestEthGet();
 
             // Clear all EEPROM content
             //            XEEBeginWrite(0x0000);

@@ -147,9 +147,6 @@ void main(void) {
     // 18 - Initialize ADC
     InitADC();
 
-    // Run Tests
-    TestStart();
-    
     // Now that all items are initialized, begin the co-operative
     // multitasking loop.  This infinite loop will continuously
     // execute all stack-related tasks, as well as your own
@@ -168,6 +165,9 @@ void main(void) {
             LED_0_INV();
         }
 
+        // Run Tests
+        TestStart();
+
         // This task performs normal stack task including checking
         // for incoming packet, type of packet and calling
         // appropriate stack entity to process it.
@@ -178,12 +178,12 @@ void main(void) {
         PingTask();
         // NTP Handler
         UDPClientNTPHandler();
-        
+
         InputTask();
         IOTask();
         ADCTask();
         RelayTesk();
-        
+
         ExtRTCCSetTimeFromNTPTask();
         rebootTask();
         HTTPClientTask();
