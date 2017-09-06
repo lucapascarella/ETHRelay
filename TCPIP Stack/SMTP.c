@@ -618,9 +618,9 @@ void SMTPTask(void) {
             switch (SMTPState) {
                 case SMTP_HELO:
                     if (SMTPClient.Username.szROM == NULL)
-                        TCPPutROMString(MySocket, (ROM BYTE*) "HELO MCHPBOARD\r\n");
+                        TCPPutROMString(MySocket, (ROM BYTE*) "HELO ETHRELAY\r\n");
                     else
-                        TCPPutROMString(MySocket, (ROM BYTE*) "EHLO MCHPBOARD\r\n");
+                        TCPPutROMString(MySocket, (ROM BYTE*) "EHLO ETHRELAY\r\n");
                     TCPFlush(MySocket);
                     SMTPState++;
                     break;

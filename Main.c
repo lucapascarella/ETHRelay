@@ -152,7 +152,7 @@ void main(void) {
     // execute all stack-related tasks, as well as your own
     // application's functions.  Custom functions should be added
     // at the end of this loop.
-    // Note that this is a "co-operative mult-tasking" mechanism
+    // Note that this is a "co-operative multi-tasking" mechanism
     // where every task performs its tasks (whether all in one shot
     // or part of it) and returns so that other tasks can do their
     // job.
