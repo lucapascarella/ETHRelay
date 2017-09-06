@@ -83,6 +83,7 @@
       <itemPath>Main.h</itemPath>
       <itemPath>HardwareProfile.h</itemPath>
       <itemPath>HTTPPrint.h</itemPath>
+      <itemPath>Test.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
