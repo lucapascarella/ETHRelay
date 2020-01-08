@@ -146,7 +146,8 @@ HTTP_IO_RESULT HTTPPostIO(void) {
 void HTTPAppGetIO(HTTP_CONN * curHTTP) {
 
     BYTE *io, *action, *direction, *startup;
-
+    BYTE *out, *on1h, *on1m, *off1h, *off1m, *on2h, *on2m, *off2h, *off2m;
+    
     io = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "io");
     action = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "act");
     direction = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "dir");
@@ -159,6 +160,30 @@ void HTTPAppGetIO(HTTP_CONN * curHTTP) {
     }
     if (io && startup) {
         setStartupIO(*io - '0', *startup - '0');
+    }
+
+    out = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "out");
+    on1h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on1h");
+    on1m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on1m");
+    off1h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off1h");
+    off1m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off1m");
+    on2h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on2h");
+    on2m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on2m");
+    off2h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off2h");
+    off2m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off2m");
+    if (out && on1h && on1m && off1h && off1m) {
+        setOut1OnHour((*out - '0'), atob((char*) on1h));
+        setOut1OnMinute(*out - '0', atob((char*) on1m));
+        setOut1OffHour(*out - '0', atob((char*) off1h));
+        setOut1OffMinute(*out - '0', atob((char*) off1m));
+        saveAppConfig();
+    }
+    if (out && on2h && on2m && off2h && off2m) {
+        setOut2OnHour((*out - '0'), atob((char*) on2h));
+        setOut2OnMinute(*out - '0', atob((char*) on2m));
+        setOut2OffHour(*out - '0', atob((char*) off2h));
+        setOut2OffMinute(*out - '0', atob((char*) off2m));
+        saveAppConfig();
     }
 }
 
@@ -205,4 +230,52 @@ void HTTPPrint_ioSel(WORD num) {
     BYTE aaa = getNoticeIO(num);
     btoa(aaa, (char*) curHTTP.data);
     TCPPutString(sktHTTP, curHTTP.data);
+}
+
+void HTTPPrint_oon1h(WORD out) {
+    char str[8];
+    btoa(getOutOn1Hour(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_oon1m(WORD out) {
+    char str[8];
+    btoa(getOutOn1Minute(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_ooff1h(WORD out) {
+    char str[8];
+    btoa(getOutOff1Hour(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_ooff1m(WORD out) {
+    char str[8];
+    btoa(getOutOff1Minute(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_oon2h(WORD out) {
+    char str[8];
+    btoa(getOutOn2Hour(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_oon2m(WORD out) {
+    char str[8];
+    btoa(getOutOn2Minute(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_ooff2h(WORD out) {
+    char str[8];
+    btoa(getOutOff2Hour(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_ooff2m(WORD out) {
+    char str[8];
+    btoa(getOutOff2Minute(out), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
 }

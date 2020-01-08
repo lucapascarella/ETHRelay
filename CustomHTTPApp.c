@@ -76,9 +76,6 @@
 extern APP_CONFIG appConfig;
 
 
-unsigned short ASCIItoNumeric(unsigned char*);
-
-
 
 /*****************************************************************************
   Function:
@@ -223,57 +220,6 @@ HTTP_IO_RESULT HTTPExecutePost(void) {
         return HTTPPostIO();
 
     return HTTP_IO_DONE;
-}
-
-
-//**********************************************************************************
-//		static unsigned char ASCIItoNumeric(unsigned char *)
-//
-//		Routine per la conversione di una numero espresso in ASCII in 
-//		valore numerico
-//**********************************************************************************
-
-unsigned short ASCIItoNumeric(unsigned char* textascii) {
-    unsigned short numeric;
-    unsigned char value;
-    unsigned char counter;
-
-    numeric = 0;
-    value = 0;
-    counter = 0;
-
-    //Scansione dei caratteri e determinazione del valore numerico
-    while (textascii[counter] != '\0') {
-        switch (textascii[counter]) {
-            case '0': value = 0;
-                break;
-            case '1': value = 1;
-                break;
-            case '2': value = 2;
-                break;
-            case '3': value = 3;
-                break;
-            case '4': value = 4;
-                break;
-            case '5': value = 5;
-                break;
-            case '6': value = 6;
-                break;
-            case '7': value = 7;
-                break;
-            case '8': value = 8;
-                break;
-            case '9': value = 9;
-                break;
-            default: value = 0;
-                break; //******* ERRORE ********
-        }
-        if (numeric != 0 && counter != 0) numeric *= 10;
-        numeric += value;
-        ++counter;
-    }
-    //if(numeric>255) return(255);		//ERROR MESSAGE
-    return (numeric);
 }
 
 

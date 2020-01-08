@@ -74,7 +74,7 @@
 #define STACK_USE_DHCP_CLIENT			// Dynamic Host Configuration Protocol client for obtaining IP address and other parameters
 //#define STACK_USE_DHCP_SERVER			// Single host DHCP server
 //#define STACK_USE_FTP_SERVER			// File Transfer Protocol (old)
-#define STACK_USE_SMTP_CLIENT			// Simple Mail Transfer Protocol for sending email
+//#define STACK_USE_SMTP_CLIENT			// Simple Mail Transfer Protocol for sending email
 //#define STACK_USE_SNMP_SERVER			// Simple Network Management Protocol v2C Community Agent
 //#define STACK_USE_SNMPV3_SERVER		// Simple Network Management Protocol v3 Agent
 //#define STACK_USE_TFTP_CLIENT			// Trivial File Transfer Protocol client
@@ -132,14 +132,14 @@
  *	 on the Advanced Settings page of the MPFS2 Utility.
  */
 #define INPUT_RESERVED_BLOCK            (1024ul)
-#define SMTP_RESERVED_BLOCK             (1024ul)
+//#define SMTP_RESERVED_BLOCK             (1024ul)
 #define APP_CONFIG_RESERVED_BLOCK       (1024ul)
 
 #define INPUT_START_ADDRESS             0x0000
-#define SMTP_START_ADDRESS              INPUT_RESERVED_BLOCK
-#define APP_CONFIG_START_ADDRESS        INPUT_RESERVED_BLOCK + SMTP_RESERVED_BLOCK
+//#define SMTP_START_ADDRESS              INPUT_RESERVED_BLOCK
+#define APP_CONFIG_START_ADDRESS        INPUT_RESERVED_BLOCK
 
-#define MPFS_RESERVE_BLOCK				INPUT_RESERVED_BLOCK + SMTP_RESERVED_BLOCK + APP_CONFIG_RESERVED_BLOCK//(4096ul)
+#define MPFS_RESERVE_BLOCK				INPUT_RESERVED_BLOCK + APP_CONFIG_RESERVED_BLOCK//(4096ul)
 
 /* MPFS File Handles
  *   Maximum number of simultaneously open MPFS2 files.
@@ -374,7 +374,7 @@ ROM struct {
 // Define which HTTP modules to use
 // If not using a specific module, comment it to save resources
 #define HTTP_USE_POST					// Enable POST support
-#define HTTP_USE_COOKIES				// Enable cookie support
+//#define HTTP_USE_COOKIES				// Enable cookie support
 #define HTTP_USE_AUTHENTICATION			// Enable basic authentication support
 
 //#define HTTP_NO_AUTH_WITHOUT_SSL		// Uncomment to require SSL before requesting a password

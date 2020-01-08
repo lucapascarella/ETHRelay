@@ -21,26 +21,37 @@
 
 void HTTPAppGetRelay(HTTP_CONN *curHTTP) {
 
-    BYTE *relay, *action, *startup, *onh, *onm, *offh, *offm;
+    BYTE *relay, *action, *startup, *on1h, *on1m, *off1h, *off1m, *on2h, *on2m, *off2h, *off2m;
 
     relay = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "relay");
     action = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "act");
     startup = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "st");
-    onh = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "onh");
-    onm = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "onm");
-    offh = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "offh");
-    offm = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "offm");
+    on1h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on1h");
+    on1m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on1m");
+    off1h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off1h");
+    off1m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off1m");
+    on2h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on2h");
+    on2m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "on2m");
+    off2h = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off2h");
+    off2m = HTTPGetROMArg(curHTTP->data, (ROM BYTE *) "off2m");
     if (relay && action) {
         setRelay(*relay - '0', *action - '0');
     }
     if (relay && startup) {
         setStartUpRelay(*relay - '0', *startup - '0');
     }
-    if (relay && onh && onm && offh && offm) {
-        setOnHour((*relay - '0'), atob((char*) onh));
-        setOnMinute(*relay - '0', atob((char*) onm));
-        setOffHour(*relay - '0', atob((char*) offh));
-        setOffMinute(*relay - '0', atob((char*) offm));
+    if (relay && on1h && on1m && off1h && off1m) {
+        setRelayOn1Hour((*relay - '0'), atob((char*) on1h));
+        setRelayOn1Minute(*relay - '0', atob((char*) on1m));
+        setRelayOff1Hour(*relay - '0', atob((char*) off1h));
+        setRelayOff1Minute(*relay - '0', atob((char*) off1m));
+        saveAppConfig();
+    }
+    if (relay && on2h && on2m && off2h && off2m) {
+        setRelayOn2Hour((*relay - '0'), atob((char*) on2h));
+        setRelayOn2Minute(*relay - '0', atob((char*) on2m));
+        setRelayOff2Hour(*relay - '0', atob((char*) off2h));
+        setRelayOff2Minute(*relay - '0', atob((char*) off2m));
         saveAppConfig();
     }
 }
@@ -59,27 +70,51 @@ void HTTPPrint_st(WORD relay) {
     TCPPut(sktHTTP, (BYTE*) stat ? '1' : '0');
 }
 
-void HTTPPrint_onh(WORD relay) {
+void HTTPPrint_ron1h(WORD relay) {
     char str[8];
-    btoa(getOnHour(relay), str);
+    btoa(getRelayOn1Hour(relay), str);
     TCPPutString(sktHTTP, (BYTE*) str);
 }
 
-void HTTPPrint_onm(WORD relay) {
+void HTTPPrint_ron1m(WORD relay) {
     char str[8];
-    btoa(getOnMinute(relay), str);
+    btoa(getRelayOn1Minute(relay), str);
     TCPPutString(sktHTTP, (BYTE*) str);
 }
 
-void HTTPPrint_offh(WORD relay) {
+void HTTPPrint_roff1h(WORD relay) {
     char str[8];
-    btoa(getOffHour(relay), str);
+    btoa(getRelayOff1Hour(relay), str);
     TCPPutString(sktHTTP, (BYTE*) str);
 }
 
-void HTTPPrint_offm(WORD relay) {
+void HTTPPrint_roff1m(WORD relay) {
     char str[8];
-    btoa(getOffMinute(relay), str);
+    btoa(getRelayOff1Minute(relay), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_ron2h(WORD relay) {
+    char str[8];
+    btoa(getRelayOn2Hour(relay), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_ron2m(WORD relay) {
+    char str[8];
+    btoa(getRelayOn2Minute(relay), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_roff2h(WORD relay) {
+    char str[8];
+    btoa(getRelayOff2Hour(relay), str);
+    TCPPutString(sktHTTP, (BYTE*) str);
+}
+
+void HTTPPrint_roff2m(WORD relay) {
+    char str[8];
+    btoa(getRelayOff2Minute(relay), str);
     TCPPutString(sktHTTP, (BYTE*) str);
 }
 

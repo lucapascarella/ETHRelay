@@ -9,23 +9,43 @@
     <st3>~st(3)~</st3>
     <st4>~st(4)~</st4>
     
-    <onh1>~onh(1)~</onh1>
-    <onm1>~onm(1)~</onm1>
-    <offh1>~offh(1)~</offh1>
-    <offm1>~offm(1)~</offm1>
+    <on1h1>~ron1h(1)~</on1h1>
+    <on1m1>~ron1m(1)~</on1m1>
+    <off1h1>~roff1h(1)~</off1h1>
+    <off1m1>~roff1m(1)~</off1m1>
     
-    <onh2>~onh(2)~</onh2>
-    <onm2>~onm(2)~</onm2>
-    <offh2>~offh(2)~</offh2>
-    <offm2>~offm(2)~</offm2>
+    <on1h2>~ron1h(2)~</on1h2>
+    <on1m2>~ron1m(2)~</on1m2>
+    <off1h2>~roff1h(2)~</off1h2>
+    <off1m2>~roff1m(2)~</off1m2>
     
-    <onh3>~onh(3)~</onh3>
-    <onm3>~onm(3)~</onm3>
-    <offh3>~offh(3)~</offh3>
-    <offm3>~offm(3)~</offm3>
+    <on1h3>~ron1h(3)~</on1h3>
+    <on1m3>~ron1m(3)~</on1m3>
+    <off1h3>~roff1h(3)~</off1h3>
+    <off1m3>~roff1m(3)~</off1m3>
     
-    <onh4>~onh(4)~</onh4>
-    <onm4>~onm(4)~</onm4>
-    <offh4>~offh(4)~</offh4>
-    <offm4>~offm(4)~</offm4>
+    <on1h4>~ron1h(4)~</on1h4>
+    <on1m4>~ron1m(4)~</on1m4>
+    <off1h4>~roff1h(4)~</off1h4>
+    <off1m4>~roff1m(4)~</off1m4>
+    
+    <on2h1>~ron2h(1)~</on2h1>
+    <on2m1>~ron2m(1)~</on2m1>
+    <off2h1>~roff2h(1)~</off2h1>
+    <off2m1>~roff2m(1)~</off2m1>
+    
+    <on2h2>~ron2h(2)~</on2h2>
+    <on2m2>~ron2m(2)~</on2m2>
+    <off2h2>~roff2h(2)~</off2h2>
+    <off2m2>~roff2m(2)~</off2m2>
+    
+    <on2h3>~ron2h(3)~</on2h3>
+    <on2m3>~ron2m(3)~</on2m3>
+    <off2h3>~roff2h(3)~</off2h3>
+    <off2m3>~roff2m(3)~</off2m3>
+    
+    <on2h4>~ron2h(4)~</on2h4>
+    <on2m4>~ron2m(4)~</on2m4>
+    <off2h4>~roff2h(4)~</off2h4>
+    <off2m4>~roff2m(4)~</off2m4>
 </r>

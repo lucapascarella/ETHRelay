@@ -116,15 +116,17 @@
                 </tbody>
             </table>
 
-            <table class="tb tb4t">
+            <table class="tb tb6t">
                 <thead>
                     <tr>
-                        <th colspan="4">Timer functions</th>
+                        <th colspan="6">Timer functions</th>
                     </tr>
                     <tr>
                         <th>Relay number</th>
-                        <th>Turn on time</th>
-                        <th>Turn off time</th>
+                        <th>Turn on 1 time</th>
+                        <th>Turn off 1 time</th>
+                        <th>Turn on 2 time</th>
+                        <th>Turn off 2 time</th>
                         <th>Save</th>
                     </tr>
                 </thead>
@@ -132,50 +134,94 @@
                     <tr id="r1">
                         <td>Relay 1:</td>
                         <td>
-                            <select id="onh1"></select>
-                            <select id="onm1"></select>
+                            <select id="on1h1"></select>
+                            <select id="on1m1"></select>
                         </td>
                         <td>
-                            <select id="offh1"></select>
-                            <select id="offm1"></select>
+                            <select id="off1h1"></select>
+                            <select id="off1m1"></select>
                         </td>
-                        <td><input type="button" value="Save" id="rs1" onclick="save(this);" title=""/></td>
+                        <td>
+                            <select id="on2h1"></select>
+                            <select id="on2m1"></select>
+                        </td>
+                        <td>
+                            <select id="off2h1"></select>
+                            <select id="off2m1"></select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="rs1" onclick="save(this);" title=""/>
+                            <input type="button" value="Reset" id="rr1" onclick="reset(this);" title=""/>
+                        </td>
                     </tr>
                     <tr>
                         <td>Relay 2:</td>
                         <td>
-                            <select id="onh2"></select>
-                            <select id="onm2"></select>
+                            <select id="on1h2"></select>
+                            <select id="on1m2"></select>
                         </td>
                         <td>
-                            <select id="offh2"></select>
-                            <select id="offm2"></select>
+                            <select id="off1h2"></select>
+                            <select id="off1m2"></select>
                         </td>
-                        <td><input type="button" value="Save" id="rs2" onclick="save(this);" title=""/></td>
+                        <td>
+                            <select id="on2h2"></select>
+                            <select id="on2m2"></select>
+                        </td>
+                        <td>
+                            <select id="off2h2"></select>
+                            <select id="off2m2"></select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="rs2" onclick="save(this);" title=""/>
+                            <input type="button" value="Reset" id="rr2" onclick="reset(this);" title=""/>
+                        </td>
                     </tr>
                     <tr>
                         <td>Relay 3:</td>
                         <td>
-                            <select id="onh3"></select>
-                            <select id="onm3"></select>
+                            <select id="on1h3"></select>
+                            <select id="on1m3"></select>
                         </td>
                         <td>
-                            <select id="offh3"></select>
-                            <select id="offm3"></select>
+                            <select id="off1h3"></select>
+                            <select id="off1m3"></select>
                         </td>
-                        <td><input type="button" value="Save" id="rs3" onclick="save(this);" title=""/></td>
+                        <td>
+                            <select id="on2h3"></select>
+                            <select id="on2m3"></select>
+                        </td>
+                        <td>
+                            <select id="off2h3"></select>
+                            <select id="off2m3"></select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="rs3" onclick="save(this);" title=""/>
+                            <input type="button" value="Reset" id="rr3" onclick="reset(this);" title=""/>
+                        </td>
                     </tr>
                     <tr>
                         <td>Relay 4:</td>
                         <td>
-                            <select id="onh4"></select>
-                            <select id="onm4"></select>
+                            <select id="on1h4"></select>
+                            <select id="on1m4"></select>
                         </td>
                         <td>
-                            <select id="offh4"></select>
-                            <select id="offm4"></select>
+                            <select id="off1h4"></select>
+                            <select id="off1m4"></select>
                         </td>
-                        <td><input type="button" value="Save" id="rs4" onclick="save(this);" title=""/></td>
+                        <td>
+                            <select id="on2h4"></select>
+                            <select id="on2m4"></select>
+                        </td>
+                        <td>
+                            <select id="off2h4"></select>
+                            <select id="off2m4"></select>
+                        </td>
+                        <td>
+                            <input type="button" value="Save" id="rs4" onclick="save(this);" title=""/>
+                            <input type="button" value="Reset" id="rr4" onclick="reset(this);" title=""/>
+                        </td>
                     </tr>
                 </tbody>
             </table>

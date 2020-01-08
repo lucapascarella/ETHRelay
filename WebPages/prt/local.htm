@@ -114,59 +114,6 @@
             <table class="tb">
                 <thead>
                     <tr>
-                        <th colspan="3">Email Notifications</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Status:</td>
-                        <td colspan="2"><label id="smtpStatus"></label></td>
-                    </tr>
-                    <tr>
-                        <td>SMTP Server:</td>
-                        <td><input type="text" id="smtpServer" maxlength="32" title="SMTP Server address"/></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>SMTP Port:</td>
-                        <td><input type="number" id="smtpPort" min="25" max="65535" title="SMTP Server port. No SSL or TLS is supported"/></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Username:</td>
-                        <td><input type="text" id="smtpUser" maxlength="32" title="Username or email address on SMTP Server"/></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td><input type="password" id="smtpPass" maxlength="32" title="Password on SMTP Server"/></td>
-                        <td><label title="Show hidden password"><input type="checkbox" id="smtpPassShow" value="1" onclick="showPasswordSMTP();" title="Show hidden password"/>Show password</label></td>
-                    </tr>
-                    <tr>
-                        <td>To:</td>
-                        <td><input type="text" id="smtpTo" maxlength="60" title="Destination email address"/></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Subject:</td>
-                        <td><input type="text" id="smtpSubject" maxlength="32" title="Subject of the delivered email"/></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Actions:</td>
-                        <td>
-                            <input type="button" id="saveSMTP" value="Save" onclick="saveSMTP(this);" title="The changes will be saved immediately, however they will be available at the next restart"/>
-                            <input type="button" id="saveAndApplySMTP" value="Save and Apply" onclick="saveAndApplySMTP(this);" title="The changes will be saved and they will be available immediately"/>
-                            <input type="button" id="resetValueSMTP" value="Reset" onclick="resetValueSMTP();" title="Reset changes"/>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <table class="tb">
-                <thead>
-                    <tr>
                         <th colspan="3">Dynamic DNS</th>
                     </tr>
                 </thead>
@@ -237,14 +184,6 @@
             var subnet_val = "~subnet~";
             var dns1_val = "~dns1~";
             var dns2_val = "~dns2~";
-            // SMTP variables
-            var smtp_status_val = "~smtpStatus~";
-            var smtp_server_val = "~smtpServer~";
-            var smtp_port_val = "~smtpPort~";
-            var smtp_user_val = "~smtpUser~";
-            var smtp_pass_val = "~smtpPass~";
-            var smtp_to_val = "~smtpTo~";
-            var smtp_subject_val = "~smtpSubject~";
             // Dynamic DNS values
             var dns_public_val = "~ddnsPublic~";
             var dns_enabled_val = "~ddnsEnabled~";
@@ -267,7 +206,6 @@
 
             window.onload = function () {
                 resetValueLocal();
-                resetValueSMTP();
                 resetValueDNS();
                 selectMenu(3);
                 ddnsWorker();

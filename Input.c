@@ -3,8 +3,6 @@
 #include "TCPIP Stack/Tick.h"
 #include "HTTPClient.h"
 
-// TODO Remove EMAIL
-#include "EMAIL.h"
 
 INPUT_CONFIG in[2];
 
@@ -39,8 +37,6 @@ void InputTask(void) {
             if (TickGet() - in[i].timeout > TICK_SECOND / 5) {
                 if (readInput(INPUT_1 + i) == BUTTON_PRESSED) {
                     in[i].bits.pressedNotice = TRUE;
-                    // Button pressed do something
-                    setSendEmailFlag();
                     //HTTPClientSendRequest(1);
                 }
                 in[i].bits.pressedTemp = FALSE;

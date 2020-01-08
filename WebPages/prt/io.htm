@@ -80,6 +80,47 @@
                 <tbody id="table2">
                 </tbody>
             </table>
+            
+            <table class="tb tb6t">
+                <thead>
+                    <tr>
+                        <th colspan="6">Timer functions (Output mode)</th>
+                    </tr>
+                    <tr>
+                        <th>Output number</th>
+                        <th>Turn on 1 time</th>
+                        <th>Turn off 1 time</th>
+                        <th>Turn on 2 time</th>
+                        <th>Turn off 2 time</th>
+                        <th>Save/Reset</th>
+                    </tr>
+                </thead>
+                <tbody id="table3">
+                    <!--<tr id="out1">
+                        <td>Output 1:</td>
+                        <td>
+                            <select id="on1h11"></select>
+                            <select id="on1m11"></select>
+                        </td>
+                        <td>
+                            <select id="off1h11"></select>
+                            <select id="off1m11"></select>
+                        </td>
+                        <td>
+                            <select id="on2h11"></select>
+                            <select id="on2m11"></select>
+                        </td>
+                        <td>
+                            <select id="off2h11"></select>
+                            <select id="off2m11"></select>
+                        </td>
+                        <td>
+                            <input type="button" value="SaveTimer" id="os1" onclick="save(this);" title=""/>
+                            <input type="button" value="ResetTimer" id="or1" onclick="reset(this);" title=""/>
+                        </td>
+                    </tr>-->
+                </tbody>
+            </table>
 
         </div>
 
@@ -91,6 +132,7 @@
                 setTimeout("updateStatus()", 500);
                 setTimeout("updateIO(true, true)", 100);
                 setTimeout("updateRemoteIO()", 200);
+                updateSelectWithOptionsIo();
             };
         </script>
     </body>

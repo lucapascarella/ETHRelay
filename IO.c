@@ -62,8 +62,9 @@ void InitIO(void) {
 }
 
 void IOTask(void) {
-    BYTE i;
-    BOOL status;
+    WORD cTime, on1, off1, on2, off2;
+    BYTE i, hour, minute, onh, onm, offh, offm;
+    BOOL status, act, dir;
 
     for (i = 0; i < 8; i++) {
         if (getDirectionIO(i + 1) == IO_INPUT) {
@@ -81,6 +82,126 @@ void IOTask(void) {
         if (io[i].bits.hasChanged && HTTPClientIsReady() == 0) {
             io[i].bits.hasChanged = FALSE;
             HTTPClientSendRequest(i + 1, io[i].bits.status);
+        }
+    }
+
+    // Check timer
+    hour = ExtRTCCGetHours();
+    minute = ExtRTCCGetMinutes();
+    cTime = getTime(hour, minute);
+    for (i = 0; i < 8; i++) {
+        if (getDirectionIO(i + 1) == IO_OUTPUT) {
+            // Get minutes from timer 1
+            onh = getOutOn1Hour(i + 1);
+            onm = getOutOn1Minute(i + 1);
+            offh = getOutOff1Hour(i + 1);
+            offm = getOutOff1Minute(i + 1);
+            on1 = getTime(onh, onm);
+            off1 = getTime(offh, offm);
+            // Get minutes from timer 2
+            onh = getOutOn2Hour(i + 1);
+            onm = getOutOn2Minute(i + 1);
+            offh = getOutOff2Hour(i + 1);
+            offm = getOutOff2Minute(i + 1);
+            on2 = getTime(onh, onm);
+            off2 = getTime(offh, offm);
+            if (on1 == off1 && on2 == off2) {
+                // Disabled
+                Nop();
+            } else if (on1 > off1 && on2 <= off2) {
+                // T1 inverted and T2 normal or disabled
+                if (cTime < off1) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+                if (cTime >= off1) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+
+                if (cTime >= on2 && cTime < off2) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+
+                if (cTime >= on1) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+            } else if (on2 > off2 && on1 <= off1) {
+                // T2 inverted and T1 normal or disabled
+                if (cTime < off2) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+                if (cTime >= off2) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+
+                if (cTime >= on1 && cTime < off1) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+
+                if (cTime >= on2) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+            } else if (on1 <= off1 && on2 <= off2) {
+                // Both normal or one disabled
+                if (cTime < on1 && cTime < on2) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+
+                if (on1 < on2 && cTime >= on1 && cTime < off1) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+                if (on1 < on2 && cTime > on1 && cTime >= off1) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+                if (on2 < on1 && cTime >= on2 && cTime < off2) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+                if (on2 < on1 && cTime > on2 && cTime >= off2) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+
+                if (on1 < on2 && cTime >= on2 && cTime < off2) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+                if (on1 < on2 && cTime > on2 && cTime >= off2) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+                if (on2 < on1 && cTime >= on1 && cTime < off1) {
+                    act = TRUE;
+                    dir = IO_HIGH;
+                }
+                if (on2 < on1 && cTime > on1 && cTime >= off1) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+
+                if (cTime >= off1 && cTime >= off2) {
+                    act = TRUE;
+                    dir = IO_LOW;
+                }
+            } else {
+                // Not allowed!
+                Nop();
+            }
+            // Perform action
+            if (act == TRUE) {
+                setOutputStateIO(i + 1, dir);
+                act = FALSE;
+            }
         }
     }
 }

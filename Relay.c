@@ -17,70 +17,131 @@ void InitRelaies(void) {
     SetRelay4AsOutput();
 }
 
-void RelayTesk(void) {
-    BYTE i, hour, minute, hon, mon, hoff, moff;
-    BOOL act[4], dir[4];
+BOOL stateNormal(WORD time, WORD on, WORD off) {
 
-    // Reset act variable to prevent unwanted switch
-    for (i = 0; i < 4; i++)
-        act[i] = dir[i] = 0;
+}
+
+void RelayTask(void) {
+    BYTE i, hour, minute, onh, onm, offh, offm;
+    WORD cTime, on1, off1, on2, off2;
+    BOOL act, dir;
 
     hour = ExtRTCCGetHours();
     minute = ExtRTCCGetMinutes();
+    cTime = getTime(hour, minute);
     for (i = 0; i < 4; i++) {
-        if (getOnHour(i + 1) != getOffHour(i + 1) || getOnMinute(i + 1) != getOffMinute(i + 1)) {
-            hon = getOnHour(i + 1);
-            mon = getOnMinute(i + 1);
-            hoff = getOffHour(i + 1);
-            moff = getOffMinute(i + 1);
-            if (getOnHour(i + 1) < getOffHour(i + 1)) {
-                if (hour >= getOnHour(i + 1) && minute >= getOnMinute(i + 1)) {
-                    act[i] = TRUE;
-                    dir[i] = RELAY_HIGH;
-                }
-                if (hour >= getOffHour(i + 1) && minute >= getOffMinute(i + 1)) {
-                    act[i] = TRUE;
-                    dir[i] = RELAY_LOW;
-                }
-            } else if (getOnHour(i + 1) == getOffHour(i + 1)) {
-                if (getOnMinute(i + 1) < getOffMinute(i + 1)) {
-                    if (hour >= getOnHour(i + 1) && minute >= getOnMinute(i + 1)) {
-                        act[i] = TRUE;
-                        dir[i] = RELAY_HIGH;
-                    }
-                    if (hour >= getOffHour(i + 1) && minute >= getOffMinute(i + 1)) {
-                        act[i] = TRUE;
-                        dir[i] = RELAY_LOW;
-                    }
-                } else {
-                    // Turn on time is less than Turn off
-                    if (hour <= getOnHour(i + 1) && minute <= getOnMinute(i + 1)) {
-                        act[i] = TRUE;
-                        dir[i] = RELAY_HIGH;
-                    }
-                    if (hour <= getOffHour(i + 1) && minute <= getOffMinute(i + 1)) {
-                        act[i] = TRUE;
-                        dir[i] = RELAY_LOW;
-                    }
-                }
-            } else {
-                // Turn on time is less than Turn off
-                if (hour <= getOnHour(i + 1) && minute <= getOnMinute(i + 1)) {
-                    act[i] = TRUE;
-                    dir[i] = RELAY_HIGH;
-                }
-                if (hour <= getOffHour(i + 1) && minute <= getOffMinute(i + 1)) {
-                    act[i] = TRUE;
-                    dir[i] = RELAY_LOW;
-                }
+        // Get minutes from timer 1
+        onh = getRelayOn1Hour(i + 1);
+        onm = getRelayOn1Minute(i + 1);
+        offh = getRelayOff1Hour(i + 1);
+        offm = getRelayOff1Minute(i + 1);
+        on1 = getTime(onh, onm);
+        off1 = getTime(offh, offm);
+        // Get minutes from timer 2
+        onh = getRelayOn2Hour(i + 1);
+        onm = getRelayOn2Minute(i + 1);
+        offh = getRelayOff2Hour(i + 1);
+        offm = getRelayOff2Minute(i + 1);
+        on2 = getTime(onh, onm);
+        off2 = getTime(offh, offm);
+        if (on1 == off1 && on2 == off2) {
+            // Disabled
+            Nop();
+        } else if (on1 > off1 && on2 <= off2) {
+            // T1 inverted and T2 normal or disabled
+            if (cTime < off1) {
+                act = TRUE;
+                dir = RELAY_HIGH;
             }
-        }
-    }
+            if (cTime >= off1) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
 
-    for (i = 0; i < 4; i++) {
-        if (act[i] == TRUE) {
-            setRelay(i + 1, dir[i]);
-            act[i] = FALSE;
+            if (cTime >= on2 && cTime < off2) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+
+            if (cTime >= on1) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+        } else if (on2 > off2 && on1 <= off1) {
+            // T2 inverted and T1 normal or disabled
+            if (cTime < off2) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+            if (cTime >= off2) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+
+            if (cTime >= on1 && cTime < off1) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+
+            if (cTime >= on2) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+        } else if (on1 <= off1 && on2 <= off2) {
+            // Both normal or one disabled
+            if (cTime < on1 && cTime < on2) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+
+            if (on1 < on2 && cTime >= on1 && cTime < off1) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+            if (on1 < on2 && cTime > on1 && cTime >= off1) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+            if (on2 < on1 && cTime >= on2 && cTime < off2) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+            if (on2 < on1 && cTime > on2 && cTime >= off2) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+
+            if (on1 < on2 && cTime >= on2 && cTime < off2) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+            if (on1 < on2 && cTime > on2 && cTime >= off2) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+            if (on2 < on1 && cTime >= on1 && cTime < off1) {
+                act = TRUE;
+                dir = RELAY_HIGH;
+            }
+            if (on2 < on1 && cTime > on1 && cTime >= off1) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+
+            if (cTime >= off1 && cTime >= off2) {
+                act = TRUE;
+                dir = RELAY_LOW;
+            }
+        } else {
+            // Not allowed!
+            Nop();
+        }
+
+
+        // Perform action
+        if (act == TRUE) {
+            setRelay(i + 1, dir);
+            act = FALSE;
         }
     }
 }
@@ -98,6 +159,7 @@ void setRelay(BYTE relay, BYTE state) {
             break;
         case RELAY_4:
             SetRelay4(state);
+
             break;
     }
 }
@@ -117,12 +179,14 @@ BOOL getRelay(BYTE relay) {
             break;
         case RELAY_4:
             ret = GetRelay4();
+
             break;
     }
     return ret;
 }
 
 void setStartUpRelay(BYTE relay, BOOL state) {
+
     appConfig.gpio.fields.relay[relay - 1].bits.startUp = state;
     //    switch (relay) {
     //        case RELAY_1:

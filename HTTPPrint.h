@@ -87,29 +87,34 @@ void HTTPPrint_ntps(void);
 void HTTPPrint_rl(WORD);
 void HTTPPrint_in(WORD);
 void HTTPPrint_io(WORD);
-void HTTPPrint_onh(WORD);
-void HTTPPrint_offh(WORD);
-void HTTPPrint_offm(WORD);
 void HTTPPrint_st(WORD);
 void HTTPPrint_an(WORD);
 void HTTPPrint_ao(WORD);
 void HTTPPrint_ar(WORD);
 void HTTPPrint_ad(WORD);
 void HTTPPrint_is(WORD);
-void HTTPPrint_onm(WORD);
 void HTTPPrint_ioAdd(WORD);
 void HTTPPrint_ioUser(WORD);
 void HTTPPrint_ioPass(WORD);
 void HTTPPrint_ioSel(WORD);
-void HTTPPrint_smtpStatus(void);
-void HTTPPrint_smtpServer(void);
-void HTTPPrint_smtpPort(void);
-void HTTPPrint_smtpUser(void);
-void HTTPPrint_smtpPass(void);
-void HTTPPrint_smtpSubject(void);
-void HTTPPrint_smtpTo(void);
 void HTTPPrint_ah(WORD);
 void HTTPPrint_al(WORD);
+void HTTPPrint_ron1h(WORD);
+void HTTPPrint_ron1m(WORD);
+void HTTPPrint_roff1h(WORD);
+void HTTPPrint_roff1m(WORD);
+void HTTPPrint_ron2h(WORD);
+void HTTPPrint_ron2m(WORD);
+void HTTPPrint_roff2h(WORD);
+void HTTPPrint_roff2m(WORD);
+void HTTPPrint_oon1h(WORD);
+void HTTPPrint_oon1m(WORD);
+void HTTPPrint_ooff1h(WORD);
+void HTTPPrint_ooff1m(WORD);
+void HTTPPrint_oon2h(WORD);
+void HTTPPrint_oon2m(WORD);
+void HTTPPrint_ooff2h(WORD);
+void HTTPPrint_ooff2m(WORD);
 
 void HTTPPrint(DWORD callbackID)
 {
@@ -277,42 +282,6 @@ void HTTPPrint(DWORD callbackID)
         case 0x00000089:
 			HTTPPrint_io(8);
 			break;
-        case 0x0000008a:
-			HTTPPrint_onh(1);
-			break;
-        case 0x0000008b:
-			HTTPPrint_offh(1);
-			break;
-        case 0x0000008c:
-			HTTPPrint_offm(1);
-			break;
-        case 0x0000008d:
-			HTTPPrint_onh(2);
-			break;
-        case 0x0000008e:
-			HTTPPrint_offh(2);
-			break;
-        case 0x0000008f:
-			HTTPPrint_offm(2);
-			break;
-        case 0x00000090:
-			HTTPPrint_onh(3);
-			break;
-        case 0x00000091:
-			HTTPPrint_offh(3);
-			break;
-        case 0x00000092:
-			HTTPPrint_offm(3);
-			break;
-        case 0x00000093:
-			HTTPPrint_onh(4);
-			break;
-        case 0x00000094:
-			HTTPPrint_offh(4);
-			break;
-        case 0x00000095:
-			HTTPPrint_offm(4);
-			break;
         case 0x00000096:
 			HTTPPrint_st(1);
 			break;
@@ -396,18 +365,6 @@ void HTTPPrint(DWORD callbackID)
 			break;
         case 0x000000b9:
 			HTTPPrint_is(8);
-			break;
-        case 0x000000ba:
-			HTTPPrint_onm(1);
-			break;
-        case 0x000000bb:
-			HTTPPrint_onm(2);
-			break;
-        case 0x000000bc:
-			HTTPPrint_onm(3);
-			break;
-        case 0x000000bd:
-			HTTPPrint_onm(4);
 			break;
         case 0x000000be:
 			HTTPPrint_ioAdd(1);
@@ -505,27 +462,6 @@ void HTTPPrint(DWORD callbackID)
         case 0x000000dd:
 			HTTPPrint_ioSel(8);
 			break;
-        case 0x000000de:
-			HTTPPrint_smtpStatus();
-			break;
-        case 0x000000df:
-			HTTPPrint_smtpServer();
-			break;
-        case 0x000000e0:
-			HTTPPrint_smtpPort();
-			break;
-        case 0x000000e1:
-			HTTPPrint_smtpUser();
-			break;
-        case 0x000000e2:
-			HTTPPrint_smtpPass();
-			break;
-        case 0x000000e3:
-			HTTPPrint_smtpSubject();
-			break;
-        case 0x000000e5:
-			HTTPPrint_smtpTo();
-			break;
         case 0x000000e6:
 			HTTPPrint_ah(1);
 			break;
@@ -549,6 +485,294 @@ void HTTPPrint(DWORD callbackID)
 			break;
         case 0x000000ed:
 			HTTPPrint_al(4);
+			break;
+        case 0x0000010e:
+			HTTPPrint_ron1h(1);
+			break;
+        case 0x0000010f:
+			HTTPPrint_ron1m(1);
+			break;
+        case 0x00000110:
+			HTTPPrint_roff1h(1);
+			break;
+        case 0x00000111:
+			HTTPPrint_roff1m(1);
+			break;
+        case 0x00000112:
+			HTTPPrint_ron1h(2);
+			break;
+        case 0x00000113:
+			HTTPPrint_ron1m(2);
+			break;
+        case 0x00000114:
+			HTTPPrint_roff1h(2);
+			break;
+        case 0x00000115:
+			HTTPPrint_roff1m(2);
+			break;
+        case 0x00000116:
+			HTTPPrint_ron1h(3);
+			break;
+        case 0x00000117:
+			HTTPPrint_ron1m(3);
+			break;
+        case 0x00000118:
+			HTTPPrint_roff1h(3);
+			break;
+        case 0x00000119:
+			HTTPPrint_roff1m(3);
+			break;
+        case 0x0000011a:
+			HTTPPrint_ron1h(4);
+			break;
+        case 0x0000011b:
+			HTTPPrint_ron1m(4);
+			break;
+        case 0x0000011c:
+			HTTPPrint_roff1h(4);
+			break;
+        case 0x0000011d:
+			HTTPPrint_roff1m(4);
+			break;
+        case 0x0000011e:
+			HTTPPrint_ron2h(1);
+			break;
+        case 0x0000011f:
+			HTTPPrint_ron2m(1);
+			break;
+        case 0x00000120:
+			HTTPPrint_roff2h(1);
+			break;
+        case 0x00000121:
+			HTTPPrint_roff2m(1);
+			break;
+        case 0x00000122:
+			HTTPPrint_ron2h(2);
+			break;
+        case 0x00000123:
+			HTTPPrint_ron2m(2);
+			break;
+        case 0x00000124:
+			HTTPPrint_roff2h(2);
+			break;
+        case 0x00000125:
+			HTTPPrint_roff2m(2);
+			break;
+        case 0x00000126:
+			HTTPPrint_ron2h(3);
+			break;
+        case 0x00000127:
+			HTTPPrint_ron2m(3);
+			break;
+        case 0x00000128:
+			HTTPPrint_roff2h(3);
+			break;
+        case 0x00000129:
+			HTTPPrint_roff2m(3);
+			break;
+        case 0x0000012a:
+			HTTPPrint_ron2h(4);
+			break;
+        case 0x0000012b:
+			HTTPPrint_ron2m(4);
+			break;
+        case 0x0000012c:
+			HTTPPrint_roff2h(4);
+			break;
+        case 0x0000012d:
+			HTTPPrint_roff2m(4);
+			break;
+        case 0x0000012e:
+			HTTPPrint_oon1h(1);
+			break;
+        case 0x0000012f:
+			HTTPPrint_oon1m(1);
+			break;
+        case 0x00000130:
+			HTTPPrint_ooff1h(1);
+			break;
+        case 0x00000131:
+			HTTPPrint_ooff1m(1);
+			break;
+        case 0x00000132:
+			HTTPPrint_oon1h(2);
+			break;
+        case 0x00000133:
+			HTTPPrint_oon1m(2);
+			break;
+        case 0x00000134:
+			HTTPPrint_ooff1h(2);
+			break;
+        case 0x00000135:
+			HTTPPrint_ooff1m(2);
+			break;
+        case 0x00000136:
+			HTTPPrint_oon1h(3);
+			break;
+        case 0x00000137:
+			HTTPPrint_oon1m(3);
+			break;
+        case 0x00000138:
+			HTTPPrint_ooff1h(3);
+			break;
+        case 0x00000139:
+			HTTPPrint_ooff1m(3);
+			break;
+        case 0x0000013a:
+			HTTPPrint_oon1h(4);
+			break;
+        case 0x0000013b:
+			HTTPPrint_oon1m(4);
+			break;
+        case 0x0000013c:
+			HTTPPrint_ooff1h(4);
+			break;
+        case 0x0000013d:
+			HTTPPrint_ooff1m(4);
+			break;
+        case 0x0000013e:
+			HTTPPrint_oon1h(5);
+			break;
+        case 0x0000013f:
+			HTTPPrint_oon1m(5);
+			break;
+        case 0x00000140:
+			HTTPPrint_ooff1h(5);
+			break;
+        case 0x00000141:
+			HTTPPrint_ooff1m(5);
+			break;
+        case 0x00000142:
+			HTTPPrint_oon1h(6);
+			break;
+        case 0x00000143:
+			HTTPPrint_oon1m(6);
+			break;
+        case 0x00000144:
+			HTTPPrint_ooff1h(6);
+			break;
+        case 0x00000145:
+			HTTPPrint_ooff1m(6);
+			break;
+        case 0x00000146:
+			HTTPPrint_oon1h(7);
+			break;
+        case 0x00000147:
+			HTTPPrint_oon1m(7);
+			break;
+        case 0x00000148:
+			HTTPPrint_ooff1h(7);
+			break;
+        case 0x00000149:
+			HTTPPrint_ooff1m(7);
+			break;
+        case 0x0000014a:
+			HTTPPrint_oon1h(8);
+			break;
+        case 0x0000014b:
+			HTTPPrint_oon1m(8);
+			break;
+        case 0x0000014c:
+			HTTPPrint_ooff1h(8);
+			break;
+        case 0x0000014d:
+			HTTPPrint_ooff1m(8);
+			break;
+        case 0x0000014e:
+			HTTPPrint_oon2h(1);
+			break;
+        case 0x0000014f:
+			HTTPPrint_oon2m(1);
+			break;
+        case 0x00000150:
+			HTTPPrint_ooff2h(1);
+			break;
+        case 0x00000151:
+			HTTPPrint_ooff2m(1);
+			break;
+        case 0x00000152:
+			HTTPPrint_oon2h(2);
+			break;
+        case 0x00000153:
+			HTTPPrint_oon2m(2);
+			break;
+        case 0x00000154:
+			HTTPPrint_ooff2h(2);
+			break;
+        case 0x00000155:
+			HTTPPrint_ooff2m(2);
+			break;
+        case 0x00000156:
+			HTTPPrint_oon2h(3);
+			break;
+        case 0x00000157:
+			HTTPPrint_oon2m(3);
+			break;
+        case 0x00000158:
+			HTTPPrint_ooff2h(3);
+			break;
+        case 0x00000159:
+			HTTPPrint_ooff2m(3);
+			break;
+        case 0x0000015a:
+			HTTPPrint_oon2h(4);
+			break;
+        case 0x0000015b:
+			HTTPPrint_oon2m(4);
+			break;
+        case 0x0000015c:
+			HTTPPrint_ooff2h(4);
+			break;
+        case 0x0000015d:
+			HTTPPrint_ooff2m(4);
+			break;
+        case 0x0000015e:
+			HTTPPrint_oon2h(5);
+			break;
+        case 0x0000015f:
+			HTTPPrint_oon2m(5);
+			break;
+        case 0x00000160:
+			HTTPPrint_ooff2h(5);
+			break;
+        case 0x00000161:
+			HTTPPrint_ooff2m(5);
+			break;
+        case 0x00000162:
+			HTTPPrint_oon2h(6);
+			break;
+        case 0x00000163:
+			HTTPPrint_oon2m(6);
+			break;
+        case 0x00000164:
+			HTTPPrint_ooff2h(6);
+			break;
+        case 0x00000165:
+			HTTPPrint_ooff2m(6);
+			break;
+        case 0x00000166:
+			HTTPPrint_oon2h(7);
+			break;
+        case 0x00000167:
+			HTTPPrint_oon2m(7);
+			break;
+        case 0x00000168:
+			HTTPPrint_ooff2h(7);
+			break;
+        case 0x00000169:
+			HTTPPrint_ooff2m(7);
+			break;
+        case 0x0000016a:
+			HTTPPrint_oon2h(8);
+			break;
+        case 0x0000016b:
+			HTTPPrint_oon2m(8);
+			break;
+        case 0x0000016c:
+			HTTPPrint_ooff2h(8);
+			break;
+        case 0x0000016d:
+			HTTPPrint_ooff2m(8);
 			break;
 		default:
 			// Output notification for undefined values

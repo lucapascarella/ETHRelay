@@ -302,23 +302,31 @@ progress{
     padding-left: 106px;
     width: 25%;
 }
-/* TB 4 Timer*/
-.tb4t td:nth-child(1) {
+/* TB 6 Timer*/
+.tb6t td:nth-child(1) {
     text-align: left;
     font-weight: bold;
-    width: 25%;
+    width: 20%;
 }
-.tb4t td:nth-child(2) {
+.tb6t td:nth-child(2) {
     text-align: center;
-    width: 25%;
+    width: 15%;
 }
-.tb4t td:nth-child(3) {
+.tb6t td:nth-child(3) {
     text-align: center;
-    width: 25%;
+    width: 15%;
 }
-.tb4t td:nth-child(4) {
+.tb6t td:nth-child(4) {
     text-align: center;
-    width: 25%;
+    width: 15%;
+}
+.tb6t td:nth-child(5) {
+    text-align: center;
+    width: 15%;
+}
+.tb6t td:nth-child(6) {
+    text-align: center;
+    width: 20%;
 }
 /* TB 6 columns */
 .tb6 td:nth-child(1) {

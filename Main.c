@@ -66,8 +66,6 @@
 #include "ddns.h"
 #include "Ping.h"
 #include "HTTPClient.h"
-#include "EMAIL.h"
-#include "IOHandler.h"
 
 //
 // PIC18 Interrupt Service Routines
@@ -135,8 +133,6 @@ void main(void) {
     ddnsInit();
     // 13 - Initialize HTTP Client
     HTTPClientInit();
-    // 14 - Initialize EMail
-    EmailInit();
     // 15 - Initialize relay
     InitRelaies();
     // 16 - Initialize IO
@@ -179,12 +175,12 @@ void main(void) {
         InputTask();
         IOTask();
         ADCTask();
-        RelayTesk();
+        RelayTask();
         
         ExtRTCCSetTimeFromNTPTask();
         rebootTask();
         HTTPClientTask();
-        sendEmailTask();
+//        sendEmailTask();
 
         // If the local IP address has changed (ex: due to DHCP lease change)
         // write the new IP address to Announce service

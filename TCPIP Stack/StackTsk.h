@@ -62,6 +62,7 @@
 #include "WF_Config.h"     
 #endif
 
+#include "TCPIPConfig.h"
 #include "MCP79402.h"
 
 // Check for potential configuration errors in "TCPIPConfig.h"
@@ -97,7 +98,7 @@ NODE_INFO;
 #define ARRAY_SIZE_FIRMWARE             40
 #define ARRAY_SIZE_IP                   128
 #define ARRAY_SIZE_AUTH                 40
-#define ARRAY_SIZE_GPIO                 120
+#define ARRAY_SIZE_GPIO                 140
 
 #define SIZE_USERNAME                   16      // Username max length
 #define SIZE_PASSWORD                   16      // Password max length
@@ -253,38 +254,53 @@ typedef struct __attribute__((__packed__)) configStruct {
 
 
     // GPIO structure
+
     union {
         BYTE array[ARRAY_SIZE_GPIO];
         // Fields structure
 
         struct __PACKED {
             // Least Significant byte
+
             struct {
                 // LSB
                 BYTE ioNotice : 4; // 0 = Disabled, 1 = IO 1 [...] and 12 = Relay 4
                 BYTE ioDirection : 1; // 1 = Input and 0 = Output
                 BYTE ioDefault : 1; // 1 = High and 0 = Low
                 BYTE unused : 2; // 1 = High and 0 = Low
-                // Expand here
+                BYTE on1h;
+                BYTE on1m;
+                BYTE off1h;
+                BYTE off1m;
+                BYTE on2h;
+                BYTE on2m;
+                BYTE off2h;
+                BYTE off2m;
                 // MSB
             } ioBits[8];
 
             struct __PACKED {
+
                 struct {
                     BYTE startUp : 1;
                     BYTE unused : 7;
                 } bits;
-                BYTE onh;
-                BYTE onm;
-                BYTE offh;
-                BYTE offm;
+                BYTE on1h;
+                BYTE on1m;
+                BYTE off1h;
+                BYTE off1m;
+                BYTE on2h;
+                BYTE on2m;
+                BYTE off2h;
+                BYTE off2m;
             } relay[4];
-            
+
             struct __PACKED {
                 WORD upThreshold;
                 WORD lowThreshold;
                 BYTE output;
                 BYTE relay;
+
                 struct {
                     BYTE startUp : 1;
                     BYTE relay : 7;
@@ -296,7 +312,8 @@ typedef struct __attribute__((__packed__)) configStruct {
         } fields;
     } gpio; // GPIO fields
 
-} APP_CONFIG;
+}
+APP_CONFIG;
 
 #ifndef THIS_IS_STACK_APPLICATION
 //extern APP_CONFIG AppConfig;

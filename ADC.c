@@ -3,7 +3,6 @@
 #include "AppConfig.h"
 #include "IO.h"
 #include "Relay.h"
-#include "EMAIL.h"
 
 ADC_CONFIG adc;
 
@@ -62,16 +61,12 @@ void ADCTask(void) {
                     setOutputStateIO(output, ~getDefault(i + 1));
                 else if (adc.flags[i].highTh)
                     setOutputStateIO(output, getDefault(i + 1));
-                // Set flag to send email on event change
-                setSendEmailFlag();
             }
             if (relay > 0) {
                 if (adc.flags[i].lowTh)
                     setRelay(relay, ~getDefault(i + 1));
                 else if (adc.flags[i].highTh)
                     setRelay(relay, getDefault(i + 1));
-                // Set flag to send email on event change
-                setSendEmailFlag();
             }
         }
     }

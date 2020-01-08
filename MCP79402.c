@@ -327,8 +327,8 @@ void ExtRTCCSetExtendedTimeAndDate(BYTE hh, BYTE mm, BYTE ss, BYTE dd, BYTE MM, 
     date.bits.DATEONE = dd % 10;
     date.bits.DATETEN = dd / 10;
     ExtRTCCWrite(date.Val, RTCDATE);
-    month.bits.MTHONE = (MM + 1) % 10; // +1
-    month.bits.MTHTEN = (MM + 1) / 10;
+    month.bits.MTHONE = (MM) % 10; //
+    month.bits.MTHTEN = (MM) / 10;
     // month.bits.LPYR = FALSE; // Read only value
     ExtRTCCWrite(month.Val, RTCMTH);
     year.bits.YRONE = (yyyy - 2000) % 10;

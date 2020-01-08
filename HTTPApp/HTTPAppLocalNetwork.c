@@ -20,7 +20,6 @@
 #include "ddns.h"
 #include "Ping.h"
 #include "Board.h"
-#include "EMAIL.h"
 
 void HTTPPrintIP(IP_ADDR ip);
 
@@ -121,28 +120,28 @@ HTTP_IO_RESULT HTTPPostLocalNetwork(void) {
                 goto ConfigFailure;
             newAppConfig.ip.fields.SecondaryDNSServer.Val = newAppConfig.ip.fields.SecondaryDNSServer.Val;
 
-        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smse")) {
-            XEEBeginWrite(XEEPROM_SMTP_SERVER_ADDRESS);
-            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_SERVER_SIZE);
-            XEEEndWrite();
-        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smpo")) {
-            newAppConfig.ip.fields.smtpPort = atoi((char*) curHTTP.data + 6);
-        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smus")) {
-            XEEBeginWrite(XEEPROM_SMTP_USER_ADDRESS);
-            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_USER_SIZE);
-            XEEEndWrite();
-        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smpa")) {
-            XEEBeginWrite(XEEPROM_SMTP_PASS_ADDRESS);
-            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_PASS_SIZE);
-            XEEEndWrite();
-        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smto")) {
-            XEEBeginWrite(XEEPROM_SMTP_TO_ADDRESS);
-            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_TO_SIZE);
-            XEEEndWrite();
-        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smsu")) {
-            XEEBeginWrite(XEEPROM_SMTP_SUBJECT_ADDRESS);
-            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_SUBJECT_SIZE);
-            XEEEndWrite();
+//        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smse")) {
+//            XEEBeginWrite(XEEPROM_SMTP_SERVER_ADDRESS);
+//            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_SERVER_SIZE);
+//            XEEEndWrite();
+//        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smpo")) {
+//            newAppConfig.ip.fields.smtpPort = atoi((char*) curHTTP.data + 6);
+//        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smus")) {
+//            XEEBeginWrite(XEEPROM_SMTP_USER_ADDRESS);
+//            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_USER_SIZE);
+//            XEEEndWrite();
+//        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smpa")) {
+//            XEEBeginWrite(XEEPROM_SMTP_PASS_ADDRESS);
+//            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_PASS_SIZE);
+//            XEEEndWrite();
+//        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smto")) {
+//            XEEBeginWrite(XEEPROM_SMTP_TO_ADDRESS);
+//            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_TO_SIZE);
+//            XEEEndWrite();
+//        } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "smsu")) {
+//            XEEBeginWrite(XEEPROM_SMTP_SUBJECT_ADDRESS);
+//            XEEWriteArray((BYTE*) curHTTP.data + 6, XEEPROM_SMTP_SUBJECT_SIZE);
+//            XEEEndWrite();
 
         } else if (!strcmppgm2ram((char*) curHTTP.data, (rom char*) "edns")) {
             // Read new DDNS enable flag
@@ -321,62 +320,62 @@ void HTTPPrintIP(IP_ADDR ip) {
     }
 }
 
-/*
- * SMTP fields
- */
-void HTTPPrint_smtpStatus(void) {
-    BYTE str[8];
-    WORD error;
-    error = emailGetLastStatus();
-    itoa(error, (char*) str);
-    TCPPutString(sktHTTP, str);
-}
-
-void HTTPPrint_smtpServer(void) {
-    BYTE i;
-    XEEReadArray(XEEPROM_SMTP_SERVER_ADDRESS, curHTTP.data, XEEPROM_SMTP_SERVER_SIZE - 1);
-    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_SERVER_SIZE - 1;
-    curHTTP.data[i] = '\0';
-    TCPPutString(sktHTTP, curHTTP.data);
-}
-
-void HTTPPrint_smtpPort(void) {
-    BYTE str[8];
-    itoa(appConfig.ip.fields.smtpPort, (char*) str);
-    TCPPutString(sktHTTP, str);
-}
-
-void HTTPPrint_smtpUser(void) {
-    BYTE i;
-    XEEReadArray(XEEPROM_SMTP_USER_ADDRESS, curHTTP.data, XEEPROM_SMTP_USER_SIZE - 1);
-    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_USER_SIZE - 1;
-    curHTTP.data[i] = '\0';
-    TCPPutString(sktHTTP, curHTTP.data);
-}
-
-void HTTPPrint_smtpPass(void) {
-    BYTE i;
-    XEEReadArray(XEEPROM_SMTP_PASS_ADDRESS, curHTTP.data, XEEPROM_SMTP_PASS_SIZE - 1);
-    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_PASS_SIZE - 1;
-    curHTTP.data[i] = '\0';
-    TCPPutString(sktHTTP, curHTTP.data);
-}
-
-void HTTPPrint_smtpTo(void) {
-    BYTE i;
-    XEEReadArray(XEEPROM_SMTP_TO_ADDRESS, curHTTP.data, XEEPROM_SMTP_TO_SIZE - 1);
-    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_TO_SIZE - 1;
-    curHTTP.data[i] = '\0';
-    TCPPutString(sktHTTP, curHTTP.data);
-}
-
-void HTTPPrint_smtpSubject(void) {
-    BYTE i;
-    XEEReadArray(XEEPROM_SMTP_SUBJECT_ADDRESS, curHTTP.data, XEEPROM_SMTP_SUBJECT_SIZE - 1);
-    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_SUBJECT_SIZE - 1;
-    curHTTP.data[i] = '\0';
-    TCPPutString(sktHTTP, curHTTP.data);
-}
+///*
+// * SMTP fields
+// */
+//void HTTPPrint_smtpStatus(void) {
+//    BYTE str[8];
+//    WORD error;
+//    error = emailGetLastStatus();
+//    itoa(error, (char*) str);
+//    TCPPutString(sktHTTP, str);
+//}
+//
+//void HTTPPrint_smtpServer(void) {
+//    BYTE i;
+//    XEEReadArray(XEEPROM_SMTP_SERVER_ADDRESS, curHTTP.data, XEEPROM_SMTP_SERVER_SIZE - 1);
+//    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_SERVER_SIZE - 1;
+//    curHTTP.data[i] = '\0';
+//    TCPPutString(sktHTTP, curHTTP.data);
+//}
+//
+//void HTTPPrint_smtpPort(void) {
+//    BYTE str[8];
+//    itoa(appConfig.ip.fields.smtpPort, (char*) str);
+//    TCPPutString(sktHTTP, str);
+//}
+//
+//void HTTPPrint_smtpUser(void) {
+//    BYTE i;
+//    XEEReadArray(XEEPROM_SMTP_USER_ADDRESS, curHTTP.data, XEEPROM_SMTP_USER_SIZE - 1);
+//    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_USER_SIZE - 1;
+//    curHTTP.data[i] = '\0';
+//    TCPPutString(sktHTTP, curHTTP.data);
+//}
+//
+//void HTTPPrint_smtpPass(void) {
+//    BYTE i;
+//    XEEReadArray(XEEPROM_SMTP_PASS_ADDRESS, curHTTP.data, XEEPROM_SMTP_PASS_SIZE - 1);
+//    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_PASS_SIZE - 1;
+//    curHTTP.data[i] = '\0';
+//    TCPPutString(sktHTTP, curHTTP.data);
+//}
+//
+//void HTTPPrint_smtpTo(void) {
+//    BYTE i;
+//    XEEReadArray(XEEPROM_SMTP_TO_ADDRESS, curHTTP.data, XEEPROM_SMTP_TO_SIZE - 1);
+//    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_TO_SIZE - 1;
+//    curHTTP.data[i] = '\0';
+//    TCPPutString(sktHTTP, curHTTP.data);
+//}
+//
+//void HTTPPrint_smtpSubject(void) {
+//    BYTE i;
+//    XEEReadArray(XEEPROM_SMTP_SUBJECT_ADDRESS, curHTTP.data, XEEPROM_SMTP_SUBJECT_SIZE - 1);
+//    i = curHTTP.data[0] == 0xFF ? 0 : XEEPROM_SMTP_SUBJECT_SIZE - 1;
+//    curHTTP.data[i] = '\0';
+//    TCPPutString(sktHTTP, curHTTP.data);
+//}
 
 /*
  * DDNS fields

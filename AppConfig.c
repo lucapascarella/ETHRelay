@@ -132,11 +132,6 @@ void clearEEPROMContet(void) {
     for (i = 0; i < INPUT_RESERVED_BLOCK; i++)
         XEEWrite(0xFF);
     XEEEndWrite();
-    // Clear SMTP space
-    XEEBeginWrite(SMTP_START_ADDRESS);
-    for (i = 0; i < SMTP_RESERVED_BLOCK; i++)
-        XEEWrite(0xFF);
-    XEEEndWrite();
     // Clear APP space
     XEEBeginWrite(APP_CONFIG_START_ADDRESS);
     for (i = 0; i < APP_CONFIG_RESERVED_BLOCK; i++)
@@ -268,15 +263,27 @@ void loadDefaultAppConfig(void) {
         appConfig.gpio.fields.ioBits[i].ioNotice = 0; // 0 = Disabled
         appConfig.gpio.fields.ioBits[i].ioDirection = 1; // 1 = Input
         appConfig.gpio.fields.ioBits[i].ioDefault = 0; // 0 = Low
+        appConfig.gpio.fields.ioBits[i].on1h = 0;
+        appConfig.gpio.fields.ioBits[i].on1m = 0;
+        appConfig.gpio.fields.ioBits[i].off1h = 0;
+        appConfig.gpio.fields.ioBits[i].off1m = 0;
+        appConfig.gpio.fields.ioBits[i].on2h = 0;
+        appConfig.gpio.fields.ioBits[i].on2m = 0;
+        appConfig.gpio.fields.ioBits[i].off2h = 0;
+        appConfig.gpio.fields.ioBits[i].off2m = 0;
     }
 
     // Relay
     for (i = 0; i < 4; i++) {
         appConfig.gpio.fields.relay[i].bits.startUp = FALSE;
-        appConfig.gpio.fields.relay[i].onh = 0;
-        appConfig.gpio.fields.relay[i].onm = 0;
-        appConfig.gpio.fields.relay[i].offh = 0;
-        appConfig.gpio.fields.relay[i].offm = 0;
+        appConfig.gpio.fields.relay[i].on1h = 0;
+        appConfig.gpio.fields.relay[i].on1m = 0;
+        appConfig.gpio.fields.relay[i].off1h = 0;
+        appConfig.gpio.fields.relay[i].off1m = 0;
+        appConfig.gpio.fields.relay[i].on2h = 0;
+        appConfig.gpio.fields.relay[i].on2m = 0;
+        appConfig.gpio.fields.relay[i].off2h = 0;
+        appConfig.gpio.fields.relay[i].off2m = 0;
     }
 
     // Analog
