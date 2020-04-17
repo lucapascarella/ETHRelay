@@ -91,6 +91,7 @@ void IOTask(void) {
     cTime = getTime(hour, minute);
     for (i = 0; i < 8; i++) {
         if (getDirectionIO(i + 1) == IO_OUTPUT) {
+            act = FALSE;
             // Get minutes from timer 1
             onh = getOutOn1Hour(i + 1);
             onm = getOutOn1Minute(i + 1);

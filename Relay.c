@@ -17,10 +17,6 @@ void InitRelaies(void) {
     SetRelay4AsOutput();
 }
 
-BOOL stateNormal(WORD time, WORD on, WORD off) {
-
-}
-
 void RelayTask(void) {
     BYTE i, hour, minute, onh, onm, offh, offm;
     WORD cTime, on1, off1, on2, off2;
@@ -30,6 +26,7 @@ void RelayTask(void) {
     minute = ExtRTCCGetMinutes();
     cTime = getTime(hour, minute);
     for (i = 0; i < 4; i++) {
+        act = FALSE;
         // Get minutes from timer 1
         onh = getRelayOn1Hour(i + 1);
         onm = getRelayOn1Minute(i + 1);
@@ -136,8 +133,7 @@ void RelayTask(void) {
             // Not allowed!
             Nop();
         }
-
-
+        
         // Perform action
         if (act == TRUE) {
             setRelay(i + 1, dir);
@@ -218,19 +214,3 @@ BOOL getStartUpRelay(BYTE relay) {
     //            return appConfig.gpio.fields.flags.bits.startUpRelay4;
     //    }
 }
-
-//BYTE getOnHour(BYTE relay) {
-//    return appConfig.gpio.fields.relay[relay - 1].onh;
-//}
-//
-//BYTE getOnMinute(BYTE relay) {
-//    return appConfig.gpio.fields.relay[relay - 1].onm;
-//}
-//
-//BYTE getOffHour(BYTE relay) {
-//    return appConfig.gpio.fields.relay[relay - 1].offh;
-//}
-//
-//BYTE getOffMinute(BYTE relay) {
-//    return appConfig.gpio.fields.relay[relay - 1].offm;
-//}
